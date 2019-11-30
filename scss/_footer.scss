@@ -1,0 +1,76 @@
+.main-footer {
+  margin-top: 4rem;
+  background: linear-gradient(-45deg, v(kode24-purple), v(kode24-pink-dark));
+  a {
+    color: white;
+  }
+  color: white;
+  .row {
+    max-width: 1010px;
+    display: flex;
+    margin: 0 auto;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    @media screen and (min-width: $vp-desktopWide) {
+      max-width: v(vp-desktopWide);
+    }
+  }
+  .columns {
+    padding: calc(#{v(gutter)} * 4);
+    @media screen and (min-width: $vp-desktop) {
+      padding: calc(#{v(gutter)} * 6);
+    }
+  }
+  ul,
+  dd {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin-bottom: v(gutter);
+    }
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: v(gutter);
+  }
+
+  .main-logo {
+    margin-bottom: calc(#{v(gutter)} * 2);
+    .hide {
+      display: none;
+    }
+  }
+  @media screen and (max-width: #{$vp-tablet - 1}) {
+    .small-7 {
+      flex: 0 0 60%;
+    }
+    .small-5 {
+      flex: 0 0 40%;
+    }
+    .small-6 {
+      flex: 0 0 50%;
+    }
+    .small-12 {
+      flex: 0 0 100%;
+    }
+  }
+
+  @media screen and (min-width: $vp-tablet) {
+    .large-3 {
+      flex: 0 0 25%;
+    }
+    .large-7 {
+      flex: 0 0 60%;
+    }
+    .large-5 {
+      flex: 0 0 40%;
+    }
+    .large-6 {
+      flex: 0 0 50%;
+    }
+    .large-12 {
+      flex: 0 0 100%;
+    }
+  }
+}

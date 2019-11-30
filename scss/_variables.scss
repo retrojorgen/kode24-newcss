@@ -1,0 +1,52 @@
+// standard colors
+/**   Use this function when referencing colors.
+      it is basically just a shorthand.
+
+      usage: v(background-dark) outputs var(--background-dark)
+**/
+@function v($var) {
+  // https://dev.to/meduzen/write-css-variables-faster-in-scss-1mon
+  @return var(--#{$var});
+}
+
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i|IBM+Plex+Sans:400,400i,500,500i");
+
+:root {
+  --background-dark: #1e1e1e;
+  --background-dark-light: #{lighten(#1e1e1e, 10%)};
+  --background-light: #f1f1f1;
+  --background-light-dark: #{darken(#f1f1f1, 10%)};
+  --kode24-yellow: #e8cc06;
+  --kode24-yellow-light: #{lighten(#e8cc06, 10)};
+  --kode24-fuschia: #c81679;
+  --kode24-fuschia-light: #{lighten(#c81679, 10)};
+  --kode24-white: #fff;
+  --kode24-white-opacity: #{rgba(#fff, 0.2)};
+  --kode24-black: #000;
+  --kode24-pink: #c431e3;
+  --kode24-pink-light: #{lighten(#c431e3, 10)};
+  --kode24-pink-dark: #{darken(#c431e3, 10)};
+  --kode24-red: #ff4545;
+  --kode24-red-light: #{lighten(#ff4545, 10)};
+  --kode24-purple: #492792;
+  --kode24-purple-light: #{lighten(#492792, 10)};
+  --kode24-purple-dark: #{darken(#492792, 10)};
+  --kode24-textgray: #d4d4d4;
+  --kode24-textdarkgray: #333;
+  --kode24-commercial-orange: #ff8d00;
+  --kode24-commercial-orange-light: #{lighten(#ff8d00, 10)};
+
+  --vp-tablet: 700px;
+  --vp-desktop: 1025px;
+  --vp-desktopWide: 1330px;
+
+  --fontMono: "IBM Plex Mono", monospace;
+  --fontRegular: "IBM Plex Sans", sans-serif;
+
+  --gutter: 0.4rem;
+}
+
+// vp - viewport
+$vp-tablet: 700px;
+$vp-desktop: 1025px;
+$vp-desktopWide: 1330px;

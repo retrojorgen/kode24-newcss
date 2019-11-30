@@ -1,0 +1,205 @@
+.preview {
+  font-family: v(fontMono);
+  overflow: hidden;
+  a {
+    display: block;
+    position: relative;
+  }
+  time {
+    display: none;
+  }
+  @media screen and (max-width: #{$vp-tablet - 1}) {
+    &.small-7 {
+      flex: 0 0 60%;
+    }
+    &.small-5 {
+      flex: 0 0 40%;
+    }
+    &.small-6 {
+      flex: 0 0 calc(60 / 1.2);
+    }
+    &.small-12 {
+      flex: 0 0 100%;
+    }
+  }
+
+  @media screen and (min-width: $vp-tablet) {
+    &.large-7 {
+      flex: 0 0 calc(70% / 1.2);
+    }
+    &.large-5 {
+      flex: 0 0 calc(50% / 1.2);
+    }
+    &.large-6 {
+      flex: 0 0 calc(60% / 1.2);
+    }
+    &.large-12 {
+      flex: 0 0 calc(120% / 1.2);
+    }
+  }
+  .article-preview-text {
+    position: absolute;
+    bottom: 0;
+    left: 1.25rem;
+    width: calc(100% - 2.5rem);
+    padding: 1.25rem 0;
+    @media screen and (min-width: $vp-tablet) {
+      width: calc(100% - 7.5rem);
+      left: 3.75rem;
+      padding: 1.875rem 0;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: -1.25rem;
+      width: calc(100% + 2.5rem);
+      height: 60%;
+      bottom: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.76) 16%, transparent);
+      pointer-events: none;
+      @media screen and (min-width: $vp-desktop) {
+        left: -3.75rem;
+        width: calc(100% + 7.5rem);
+      }
+    }
+  }
+
+  &.yellow {
+    .headline .headline-title-wrapper {
+      background-color: v(kode24-yellow);
+      color: v(kode24-black);
+    }
+  }
+  &.purple {
+    .article-preview-text:before {
+      background: linear-gradient(0deg, v(kode24-pink) 16%, transparent);
+    }
+  }
+  &.pink {
+    .article-preview-text:before {
+      background: linear-gradient(0deg, v(kode24-fuschia) 16%, transparent);
+    }
+  }
+  &.white {
+    .headline .headline-title-wrapper {
+      background-color: v(kode24-white);
+      color: v(kode24-black);
+    }
+  }
+  &.blue {
+    .headline .headline-title-wrapper {
+      background-color: v(kode24-purple);
+      color: v(kode24-white);
+    }
+  }
+  &.black {
+    .headline .headline-title-wrapper {
+      background-color: v(kode24-black);
+      color: v(kode24-white);
+    }
+  }
+
+  .labels {
+    .label {
+      text-transform: uppercase;
+      font-size: 0.9em;
+      color: v(kode24-white);
+      background-color: v(kode24-pink);
+      padding: 0.5em 0.5em;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      font-weight: 400;
+    }
+    .label.purple {
+      background-color: v(kode24-pink);
+    }
+    .label.blue {
+      background-color: v(kode24-purple);
+    }
+    .label.pink {
+      background-color: v(kode24-fuschia);
+      color: v(kode24-white);
+    }
+    .label.yellow {
+      background-color: v(kode24-yellow);
+      color: v(kode24-black);
+    }
+    .label.white {
+      background-color: v(kode24-white);
+      color: v(kode24-black);
+    }
+    .label.black {
+      background-color: v(kode24-black);
+    }
+  }
+  .headline {
+    color: v(kode24-white);
+    display: block;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-family: v(fontMono);
+    font-weight: 500;
+    font-size: 1.5rem;
+    position: relative;
+    line-height: 1.3;
+    @media screen and (min-width: $vp-tablet) {
+      font-size: 2.5rem;
+    }
+    .headline-title-wrapper {
+      background-color: v(kode24-black);
+      color: v(kode24-white);
+      display: inline;
+      padding: 0.125rem 0.68rem 0.375rem 0.68rem;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      .yellow {
+        color: v(kode24-yellow-light);
+      }
+      .pink {
+        color: v(kode24-fuschia-light);
+      }
+      .purple {
+        color: v(kode24-pink-light);
+      }
+      .blue {
+        color: v(kode24-purple-light);
+      }
+      .black {
+        color: v(kode24-black);
+      }
+      .white {
+        color: v(kode24-white);
+      }
+    }
+  }
+  .standfirst {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: v(kode24-white);
+    position: relative;
+    font-family: v(fontRegular);
+  }
+
+  figure {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    img {
+      position: absolute;
+      height: 100%;
+      max-width: none;
+      width: 100%;
+      display: block;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.cross-site-legend {
+    max-width: 1010px;
+    margin: 2rem auto 2rem;
+
+    span {
+        color: #D4D4D4;
+        display: block;
+        padding: 5px 0;
+        margin-bottom: 10px;
+    }
+            .site-logos {
+                display: flex;
+                flex-wrap: wrap;
+                img {
+                    width: 40px;
+                    transition: 0.2s opacity;
+                    border: 1px solid rgba(0,0,0,0.1);
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+}

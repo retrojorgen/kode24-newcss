@@ -1,0 +1,215 @@
+$kode24-action-menu-gradient: -webkit-linear-gradient(
+  45deg,
+  v(kode24-pink),
+  v(kode24-red)
+);
+
+#top-navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+  height: 140px;
+  @media screen and (min-width: $vp-tablet) {
+    height: 200px;
+  }
+  #page-logo {
+    margin: 0;
+    width: 100%;
+    display: inline-block;
+    width: auto;
+    a {
+      display: inline-block;
+      text-align: center;
+      img {
+        max-width: none;
+      }
+    }
+  }
+  .logo {
+    width: 200px;
+    transform: translateX(40px) translateY(10px);
+    @media screen and (min-width: $vp-tablet) {
+      width: 420px;
+      transform: translateX(65px);
+    }
+  }
+  #page-tagline {
+    margin: 0;
+    color: v(kode24-white);
+    text-transform: uppercase;
+
+    font-weight: regular;
+    letter-spacing: 0.2rem;
+    transform: translateX(6px) translateY(10px);
+    font-size: 0.94em;
+    @media screen and (min-width: $vp-tablet) {
+      transform: translateX(28px) translateY(0px);
+      font-size: 1.2rem;
+    }
+  }
+}
+
+#nav-top.second {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  .row {
+    max-width: 1100px;
+  }
+  ul {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    li {
+      a {
+        display: block;
+        font-size: 1rem;
+        padding: 0.875rem 1rem 0.875rem 1rem;
+        letter-spacing: 0.1rem;
+        color: v(kode24-pink);
+        background: $kode24-action-menu-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+// style for article template
+
+#nav-top:not(.second),
+#top-navigation.article #header-wrap {
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  overflow-x: auto;
+  justify-content: flex-start;
+  font-family: "IBM Plex Mono", monospace;
+
+  .row {
+    max-width: 1100px;
+  }
+  ul {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    li {
+      a {
+        font-size: 1rem;
+        text-decoration: none;
+        padding: 1.25em 1em;
+        white-space: nowrap;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        &#light-switch-toggler {
+          background-color: v(kode24-black);
+          border-radius: 20px;
+          padding: 0;
+          &.on {
+            #light-switch-toggler-slider {
+              transform: translateX(100%);
+              transition: transform 0.1s ease-in-out;
+            }
+          }
+          #light-switch-toggler-icons {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+          }
+          .light-switch-toggler-icon {
+            padding: 0.4em 0.4em;
+            display: block;
+          }
+          #light-switch-toggler-slider {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 37px;
+            height: 37px;
+            background-color: v(background-light);
+            box-shadow: 1px 2px 4px v(background-dark);
+            border-radius: 50%;
+            transition: transform 0.1s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-badge {
+    display: inline-block;
+    background: v(kode24-black);
+    color: v(kode24-white);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    margin-left: 0.5em;
+    border-radius: 4px;
+    font-size: 0.8em;
+  }
+}
+#top-navigation.article #header-wrap #nav-top {
+  @media screen and (min-width: $vp-tablet) {
+    justify-content: flex-end;
+  }
+  margin-bottom: 0;
+  overflow: visible;
+}
+// style for frontpage
+#nav-top:not(.second) {
+  @media screen and (min-width: $vp-tablet) {
+    justify-content: center;
+  }
+  margin-bottom: 1em;
+}
+
+#header-cloak {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4.3rem;
+  background: linear-gradient(90deg, v(kode24-pink-dark), v(kode24-purple));
+  &.sticky {
+    z-index: 1;
+  }
+}
+
+#top-navigation.article {
+  height: 4.3rem;
+  display: block;
+  #header-wrap {
+    height: 4.3rem;
+    position: fixed;
+    top: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    height: 25px;
+    width: auto;
+    transform: none;
+    padding: 0 1em 0 0.4em;
+    @media screen and (min-width: $vp-tablet) {
+      padding: 0 1.25em;
+    }
+  }
+  ul {
+    padding-right: 1.25em;
+  }
+}

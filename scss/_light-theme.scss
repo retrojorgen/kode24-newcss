@@ -1,0 +1,56 @@
+// Contains overrides for light theme
+
+body.light {
+  background-color: v(background-light);
+  a {
+    color: v(kode24-textdarkgray);
+  }
+  #top-navigation #page-tagline {
+    color: v(kode24-textdarkgray);
+  }
+  #top-navigation .logo {
+    filter: invert(100%);
+  }
+  #kode24-graphic-header #particles-js {
+    opacity: 0.4;
+  }
+
+  .article-entity {
+    color: v(kode24-textdarkgray);
+    .headline {
+      color: v(kode24-black);
+    }
+    .standfirst {
+      color: v(kode24-textdarkgray);
+    }
+  }
+  .footer-content {
+    a.article {
+      color: v(kode24-textdarkgray);
+    }
+  }
+  // carousel overrides
+  .slick-slide {
+    a {
+      color: v(kode24-textdarkgray);
+    }
+  }
+  .slick-list:before {
+    background: linear-gradient(90deg, v(background-light), transparent);
+  }
+  .slick-list:after {
+    background: linear-gradient(90deg, transparent, v(background-light));
+  }
+  .body-copy {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: v(kode24-white);
+    }
+  }
+  .aside-desktop .ad:hover {
+    background-color: v(background-light-dark);
+  }
+}

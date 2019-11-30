@@ -1,0 +1,134 @@
+.footer-content {
+  .footer-content-related {
+    max-width: 1010px;
+    margin: 0 auto;
+  }
+  .ad-image {
+    img {
+      display: block;
+    }
+  }
+  .footer-content-wrap {
+    display: block;
+    @media screen and (min-width: $vp-tablet) {
+      display: flex;
+    }
+    &.two-col {
+      > a {
+        display: block;
+        flex: 0 0 50%;
+        margin-bottom: 0.8rem;
+
+        &:nth-child(1) {
+          @media screen and (min-width: $vp-tablet) {
+            padding-right: calc(#{v(gutter)} * 2);
+          }
+        }
+      }
+    }
+    &:not(.two-col) {
+      > a {
+        display: block;
+        flex: 0 0 33%;
+        margin-bottom: 0.8rem;
+        &:nth-child(1),
+        &:nth-child(2) {
+          @media screen and (min-width: $vp-tablet) {
+            padding-right: calc(#{v(gutter)} * 2);
+          }
+        }
+      }
+    }
+    .premium-ad {
+      .ad-text {
+        position: relative;
+        padding: 0.8rem;
+        background: linear-gradient(
+          45deg,
+          v(kode24-pink),
+          v(kode24-commercial-orange)
+        );
+      }
+      .ad-company-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        left: 0.8rem;
+        top: 0.8rem;
+      }
+      h4,
+      h5,
+      h6,
+      .cities {
+        font-family: v(fontMono);
+        margin: 0;
+        padding-left: 80px;
+      }
+      h4 {
+        opacity: 0.5;
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+      h5 {
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+      }
+      h6 {
+        opacity: 0.7;
+        font-size: 0.7rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+      }
+      .cities {
+        padding: 0.8rem;
+        padding-left: calc(80px + 0.8rem);
+        text-align: right;
+        span {
+          display: inline-block;
+          background: linear-gradient(
+            45deg,
+            v(kode24-pink),
+            v(kode24-commercial-orange)
+          );
+          color: v(kode24-white);
+          border-radius: 2px;
+          padding: 0.3rem;
+          text-transform: uppercase;
+          margin-right: 0.2rem;
+          font-size: 0.8rem;
+        }
+      }
+    }
+    .article {
+      h4 {
+        font-family: v(fontMono);
+        font-weight: normal;
+        line-height: 34px;
+
+        margin: 0;
+        font-size: 2rem;
+        padding: 0.8rem;
+      }
+    }
+    .article-image {
+      position: relative;
+      .article-tags {
+        position: absolute;
+        bottom: 0.8rem;
+        right: 0.8rem;
+        span {
+          background: rgba(0, 0, 0, 0.6);
+          display: inline-block;
+          padding: 0.1rem 0.2rem;
+          border-radius: 4px;
+          color: v(kode24-white);
+        }
+      }
+    }
+  }
+}

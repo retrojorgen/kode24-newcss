@@ -1,0 +1,176 @@
+//Classes for dynamic sizing of headlines
+$sizes: 75;
+
+//Small size using vw triggers only for small and medium
+
+@media screen and (max-width: #{$vp-tablet - 1}) {
+  @for $i from 1 through $sizes {
+    $min: 4vw;
+    $max: 20vw;
+    $step: ($max - $min) / $sizes;
+    .small-size-#{$i} {
+      font-size: $min + ($step * $i) !important;
+    }
+  }
+}
+
+@media screen and (min-width: $vp-desktop) {
+  @for $i from 1 through $sizes {
+    $min: 16px;
+    $max: 100px;
+    $step: ($max - $min) / $sizes;
+    .large-size-#{$i} {
+      font-size: $min + ($step * $i) !important;
+      @if $i < 15 {
+        line-height: 1.3;
+      } @else if $i > 15 and $i < 30 {
+        line-height: 1.3;
+      } @else if $i > 30 and $i < 50 {
+        line-height: 1.3;
+      } @else if $i > 50 {
+        line-height: 1.3;
+      }
+    }
+  }
+}
+@media screen and (max-width: #{$vp-tablet - 1}) {
+  //For small sizes on medium screen
+  .small-6,
+  .small-6 .row .columns,
+  .small-7,
+  .small-7 .row .columns,
+  .small-8,
+  .small-8 .row .columns {
+    .headline {
+      font-size: 1rem;
+    }
+  }
+
+  .small-9,
+  .small-9 .row .columns,
+  .small-10,
+  .small-10 .row .columns,
+  .small-11,
+  .small-11 .row .columns,
+  .small-12,
+  .small-12 .row .columns {
+    .headline {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: $vp-tablet) {
+  //For small sizes on large screen
+  .small-4,
+  .small-4 .row .columns,
+  .small-5,
+  .small-5 .row .columns {
+    .headline {
+      font-size: 2rem;
+    }
+  }
+
+  .small-6,
+  .small-6 .row .columns,
+  .small-7,
+  .small-7 .row .columns,
+  .small-8,
+  .small-8 .row .column {
+    .headline {
+      font-size: 2.5rem;
+    }
+  }
+
+  .small-9,
+  .small-9 .row .columns,
+  .small-10,
+  .small-10 .row .columns,
+  .small-11,
+  .small-11 .row .columns,
+  .small-12,
+  .small-12 .row .columns {
+    .headline {
+      font-size: 4rem;
+    }
+  }
+
+  //For medium sizes on large screen
+  .medium-4,
+  .medium-4 .row .columns,
+  .medium-5,
+  .medium-5 .row .columns {
+    .headline {
+      font-size: 2rem;
+    }
+  }
+
+  .medium-6,
+  .medium-6 .row .columns,
+  .medium-7,
+  .medium-7 .row .columns,
+  .medium-8,
+  .medium-8 .row .columns {
+    .headline {
+      font-size: 2.5rem;
+    }
+  }
+
+  .medium-9,
+  .medium-9 .row .columns,
+  .medium-10,
+  .medium-10 .row .columns,
+  .medium-11,
+  .medium-11 .row .columns,
+  .medium-12,
+  .medium-12 .row .columns {
+    .headline {
+      font-size: 4rem;
+    }
+  }
+
+  //For large sizes on large screen
+  .large-1,
+  .large-1 .row .columns,
+  .large-2,
+  .large-2 .row .columns,
+  .large-3,
+  .large-3 .row .columns {
+    .headline {
+      font-size: 1.75rem;
+    }
+  }
+
+  .large-4,
+  .large-4 .row .columns,
+  .large-5,
+  .large-5 .row .columns {
+    .headline {
+      font-size: 2rem;
+    }
+  }
+
+  .large-6,
+  .large-6 .row .columns,
+  .large-7,
+  .large-7 .row .columns,
+  .large-8,
+  .large-8 .row .columns {
+    .headline {
+      font-size: 2.5rem;
+    }
+  }
+
+  .large-9,
+  .large-9 .row .columns,
+  .large-10,
+  .large-10 .row .columns,
+  .large-11,
+  .large-11 .row .columns,
+  .large-12,
+  .large-12 .row .columns {
+    .headline {
+      font-size: 4rem;
+    }
+  }
+}

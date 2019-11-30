@@ -1,0 +1,76 @@
+.frontpage {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+  @media screen and (min-width: $vp-desktop) {
+    width: 1010px;
+  }
+  @media screen and (min-width: $vp-desktopWide) {
+    width: 1330px;
+  }
+  #front-articles-list {
+    width: 100%;
+    max-width: 100%;
+    @media screen and (min-width: $vp-desktop) {
+      flex: 0 0 1010px;
+    }
+  }
+  #desktop-sidemenu-front {
+    display: none;
+    @media screen and (min-width: $vp-desktopWide) {
+      display: block;
+      flex: 0 0 280px;
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: #{$vp-tablet - 1}) {
+      flex-wrap: wrap;
+      padding-left: 0.625em;
+      padding-right: 0.625em;
+    }
+
+    article {
+      margin-bottom: 0.625em;
+    }
+    @media screen and (min-width: $vp-tablet) {
+      article {
+        margin-bottom: calc(#{v(gutter)} * 2);
+        padding-right: #{v(gutter)};
+        padding-left: #{v(gutter)};
+        transition: all 0.1s ease-in-out;
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+    }
+  }
+  .row .columns {
+    min-height: 0 !important;
+    height: 0;
+  }
+
+  .row .preview.columns,
+  .row.collapse .columns {
+    height: auto;
+  }
+
+  .row.collapse .columns {
+    &.large-12 {
+      flex: 0 0 100%;
+    }
+  }
+}

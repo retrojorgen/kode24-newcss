@@ -1,0 +1,248 @@
+.slick-slider {
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-track {
+  transform: translate3d(0, 0, 0);
+}
+
+@media screen and (max-width: #{$vp-tablet - 1}) {
+  .auto-job-carousel {
+    padding: 0.8rem;
+  }
+  .auto-job-carousel article:nth-child(1n + 4) {
+    display: none;
+  }
+  .job-carousel-wrapper {
+    padding: 0.8rem 0;
+    article {
+      position: relative;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid v(kode24-white-opacity);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    .image-contain {
+      position: absolute;
+      width: 100px;
+      height: 80px;
+      left: 0;
+      top: 0;
+      background-size: cover;
+      background-position: top center;
+      margin: 0;
+    }
+    .article-preview-text {
+      padding-left: 110px;
+    }
+
+    .carousel-ad-byline {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .carousel-ad-company-logo {
+      width: 30px;
+      height: 30px;
+      background-size: 100% 100%;
+      border-radius: 50%;
+      margin-right: v(gutter);
+    }
+    h4 {
+      margin: 0;
+      font-size: 0.8em;
+      opacity: 0.5;
+    }
+    h1 {
+      font-size: 1em;
+      margin: 0;
+      font-family: v(fontMono);
+    }
+  }
+}
+
+.auto-job-carousel {
+  display: block;
+  width: 100%;
+  flex: 0 0 calc(100% - 20px);
+  max-width: 1010px;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (max-width: #{$vp-tablet - 1}) {
+    margin-bottom: calc(#{v(gutter)} * 4);
+  }
+  &:before {
+    content: "Ledige stillinger";
+    display: block;
+    background: linear-gradient(
+      45deg,
+      v(kode24-pink),
+      v(kode24-commercial-orange)
+    );
+    text-align: center;
+    color: v(kode24-white);
+    padding: 0.6em;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.slick-arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 60;
+  height: 50px;
+  width: 50px;
+  font-size: 0.625rem;
+  transform: translateY(-10px);
+  cursor: pointer;
+  color: transparent;
+  background: linear-gradient(45deg, v(kode24-pink), v(kode24-purple));
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 50%;
+  &:hover,
+  &:focus,
+  &:active {
+    background: linear-gradient(45deg, v(kode24-pink), v(kode24-purple));
+  }
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.slick-prev {
+  left: 0;
+  &:before {
+    content: "<";
+  }
+}
+.slick-next {
+  left: auto;
+  right: 0;
+  &:before {
+    content: ">";
+  }
+}
+
+.slick-slide {
+  display: block;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  a {
+    text-decoration: none;
+    color: v(kode24-white);
+    padding: 1em;
+    display: block;
+  }
+  .image-contain {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    margin-bottom: 0.85rem;
+  }
+  .article-preview-text {
+    position: relative;
+  }
+
+  .carousel-ad-byline {
+    padding-left: 90px;
+    h4 {
+      font-size: 0.8em;
+      opacity: 0.5;
+      margin-bottom: 0;
+    }
+  }
+  .headline {
+    padding-left: 90px;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-family: v(fontMono);
+  }
+  .carousel-ad-company-logo {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 15px;
+    top: 18px;
+    background-size: 100% 100%;
+    border-radius: 50%;
+  }
+}
+
+.slick-list {
+  transform: translate3d(0, 0, 0);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  @media screen and (min-width: $vp-tablet) {
+    &:before,
+    &:after {
+      position: absolute;
+      height: 100%;
+      width: 75px;
+      content: "";
+      top: 0;
+      display: block;
+      pointer-events: none;
+      width: 150px;
+      z-index: 1;
+    }
+    &:before {
+      background: linear-gradient(90deg, v(background-dark), transparent);
+      left: 0;
+    }
+    &:after {
+      background: linear-gradient(90deg, transparent, v(background-dark));
+
+      right: 0;
+    }
+  }
+}
+
+.more-jobs {
+  display: flex;
+  padding: 0.1rem;
+  background: linear-gradient(
+    45deg,
+    v(kode24-pink),
+    v(kode24-commercial-orange)
+  );
+  border-radius: 2px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  span {
+    display: block;
+    background-color: black;
+    text-align: center;
+    color: v(kode24-white);
+    text-transform: uppercase;
+    padding: 0.6rem;
+    font-size: 1rem;
+    flex: 0 0 100%;
+    font-weight: bold;
+  }
+}

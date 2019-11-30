@@ -1,0 +1,71 @@
+.top-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.625em;
+  @media screen and (min-width: $vp-tablet) {
+    margin-bottom: calc(#{v(gutter)} * 4);
+  }
+  .kicker {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  figure {
+    margin: 0;
+    img {
+      display: block;
+    }
+  }
+  .desktop {
+    display: none;
+    @media screen and (min-width: $vp-tablet) {
+      display: block;
+    }
+  }
+  .mobile {
+    display: block;
+    @media screen and (min-width: $vp-tablet) {
+      display: none;
+    }
+  }
+}
+
+.top-listing {
+  .company-information {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .image-contain {
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 10px;
+      img {
+        width: 50px;
+        position: relative;
+      }
+    }
+    color: v(kode24-white);
+    span {
+      text-shadow: 0 0 4px v(kode24-black);
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .kicker {
+    background: linear-gradient(
+      45deg,
+      v(kode24-pink),
+      v(kode24-commercial-orange)
+    );
+    text-align: center;
+    color: v(kode24-white);
+    padding: 0.8em;
+    font-size: 0.85em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+}
