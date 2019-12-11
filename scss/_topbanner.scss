@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-bottom: 0.625em;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
   @media screen and (min-width: $vp-tablet) {
     margin-bottom: calc(#{v(gutter)} * 4);
   }
@@ -11,6 +15,10 @@
     text-transform: uppercase;
     text-align: center;
     font-size: 0.85rem;
+    text-decoration: none;
+    font-size: 0.8em;
+    background: v(kode24-black);
+    width: 100%;
   }
   figure {
     margin: 0;
