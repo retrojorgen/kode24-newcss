@@ -3,8 +3,6 @@ $(() => {
     return Math.floor(Math.random() * max + 0);
   }
 
-  console.log("updated with iframe");
-
   function getUrl(url, callback) {
     $.ajax({
       type: "GET",
@@ -36,12 +34,11 @@ $(() => {
     let url = ad.url;
     let type = ad.type || "image";
     let eventName = ad.eventName;
-    console.log("ad type", ad);
+
     // Må endres hver gang
     let campaignName = "bannerannonse kode24";
     var AdElement = "";
     if (type === "iframe") {
-      console.log("drawing iframe", ad);
       adElement = $(`
         <div class="row top-profile" style="margin-top: 20px; max-width: ${desktopWidth};">
           <div class="kicker">ANNONSE</div> 
@@ -73,11 +70,9 @@ $(() => {
 
     if (!document.querySelector("header .full-bleed")) {
       main.before(adElement);
-      console.log("added banner");
     }
 
     adElement.find("a").on("click", () => {
-      console.log("Log click on banner");
       trackOutboundLink(campaignName, eventName, "klikk");
     });
   });

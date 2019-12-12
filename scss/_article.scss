@@ -9,6 +9,9 @@
   @media screen and (min-width: $vp-desktop) {
     padding: 0;
   }
+  p {
+    color: v(kode24-textgray);
+  }
 }
 
 .facebook-comments h4,
@@ -26,7 +29,6 @@
 }
 
 .article-entity {
-  
   color: v(kode24-textgray);
   > div {
     &.row {
@@ -193,7 +195,8 @@
       margin: unset;
     }
   }
-  ul, ol {
+  ul,
+  ol {
     margin-left: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.25rem;
@@ -217,7 +220,11 @@
     font-weight: 500;
   }
 
-  h2,h3,h4,h5,h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: v(kode24-white);
     word-break: break-word;
   }
@@ -243,7 +250,7 @@
         text-align: center;
         line-height: 2.4rem;
         right: 0;
-      } 
+      }
     }
 
     &[data-image-lightbox].active {
@@ -348,6 +355,3 @@
     }
   }
 }
-
-
-

@@ -34,7 +34,7 @@ gulp.task(
 );
 
 gulp.task("watch", () => {
-  gulp.watch(["scss/*.scss", "src/**.js"], done => {
+  gulp.watch(["scss/*.scss", "src/**"], done => {
     gulp.series(["clean", "styles", "pack-lab-js", "pack-kode24-js"])(done);
   });
 });

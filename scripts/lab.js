@@ -1,81 +1,7 @@
-(function() {
-  "use strict";
-
-  var name = "fromNow";
-
-  /**
-   * Toggles the text between the original text and time from now
-   * @public
-   * @example <caption>Toggles the visible text between relative time and original text.</caption>
-   * $('#myTimeTag').fromNow('toggle');
-   * @memberof db.libs.fromNow
-   * @param  {external:jQuery|string} id Selector or jQuery element
-   * @return {external:jQuery}        jQuery element
-   */
-  function toggle(id) {
-    var $el = $(id);
-
-    $el.toggleClass("active");
-
-    if ($el.hasClass("active")) {
-      $el.text(moment($el.attr("datetime")).fromNow());
-    } else {
-      $el.text($el.data("text"));
-    }
-
-    return $el;
-  }
-
-  /**
-   * Initialize the component
-   * @public
-   * @memberof db.libs.fromNow
-   * @param {external:jQuery|string} [id] Selector or jQuery element
-   * @return {array} Returns array of all targeted elements
-   */
-  function init(id) {
-    var $targets;
-
-    if (id !== undefined) {
-      $targets = $(id);
-    } else {
-      $targets = $("time[data-from-now]");
-    }
-
-    $targets.each(function(i, el) {
-      if (!db.utils.isInitialized(el, name)) {
-        var datetime = $(el).attr("datetime");
-        var $el = $(el);
-        if (moment(datetime).isValid()) {
-          $el.data("text", $el.text());
-          $el.addClass("active");
-          $el.text(moment(datetime).fromNow());
-          $el.on("click", function(event) {
-            if (event) {
-              event.stopPropagation();
-              event.preventDefault();
-            }
-            toggle($(event.currentTarget));
-          });
-        } else {
-          //FIXME: Log err?
-        }
-        db.utils.initialized(el, name);
-      }
-    });
-
-    return $targets;
-  }
-
-  return {
-    init: init,
-    reflow: init,
-    toggle: toggle
-  };
-})(jQuery, moment);
+// Bør byttes ut i fremtidolinien
 
 (function() {
-  "use strict";
+  ("use strict");
 
   var name = "imageSrcset";
   var ready = false;
@@ -276,6 +202,7 @@
     loadImagesInView();
   }
 
+  init();
   return {
     init: init,
     reflow: reflow,
@@ -284,64 +211,3 @@
     load: load
   };
 })();
-
-// moment.js locale configuration
-// locale : norwegian bokmål (nb)
-// authors : Espen Hovlandsdal : https://github.com/rexxars
-//           Sigurd Gartmann : https://github.com/sigurdga
-
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        define(['moment'], factory); // AMD
-    } else if (typeof exports === 'object') {
-        module.exports = factory(require('../moment')); // Node
-    } else {
-        factory((typeof global !== 'undefined' ? global : this).moment); // node or other global
-    }
-}(function (moment) {
-    return moment.defineLocale('nb', {
-        months : 'januar_februar_mars_april_mai_juni_juli_august_september_oktober_november_desember'.split('_'),
-        monthsShort : 'jan_feb_mar_apr_mai_jun_jul_aug_sep_okt_nov_des'.split('_'),
-        weekdays : 'søndag_mandag_tirsdag_onsdag_torsdag_fredag_lørdag'.split('_'),
-        weekdaysShort : 'søn_man_tirs_ons_tors_fre_lør'.split('_'),
-        weekdaysMin : 'sø_ma_ti_on_to_fr_lø'.split('_'),
-        longDateFormat : {
-            LT : 'H.mm',
-            LTS : 'LT.ss',
-            L : 'DD.MM.YYYY',
-            LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY [kl.] LT',
-            LLLL : 'dddd D. MMMM YYYY [kl.] LT',
-            humanReadable: 'dddd D. MMMM YYYY'
-        },
-        calendar : {
-            sameDay: '[i dag kl.] LT',
-            nextDay: '[i morgen kl.] LT',
-            nextWeek: 'dddd [kl.] LT',
-            lastDay: '[i går kl.] LT',
-            lastWeek: '[forrige] dddd [kl.] LT',
-            sameElse: 'L'
-        },
-        relativeTime : {
-            future : 'om %s',
-            past : '%s',
-            s : 'noen sekunder',
-            m : 'ett minutt',
-            mm : '%d minutter',
-            h : 'en time',
-            hh : '%d timer',
-            d : 'i går',
-            dd : '%d dager',
-            M : 'en måned',
-            MM : '%d måneder',
-            y : 'ett år',
-            yy : '%d år'
-        },
-        ordinalParse: /\d{1,2}\./,
-        ordinal : '%d.',
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 4  // The week that contains Jan 4th is the first week of the year.
-        }
-    });
-}));

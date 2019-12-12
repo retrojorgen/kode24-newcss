@@ -10,12 +10,10 @@ if (window.location.pathname !== "/") {
       headerNavigation &&
       headerCloak
     ) {
-      console.log("sticky no animation");
       headerNavigation.classList.add("sticky");
       headerCloak.classList.add("sticky", "no-animation");
       alwaysSticky = true;
     } else {
-      console.log("non sticky header");
     }
   });
 

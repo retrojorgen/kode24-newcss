@@ -1,5 +1,7 @@
+// Bør byttes ut i fremtidolinien
+
 (function() {
-  "use strict";
+  ("use strict");
 
   var name = "imageSrcset";
   var ready = false;

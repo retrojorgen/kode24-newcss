@@ -9,7 +9,7 @@ $kode24-action-menu-gradient: -webkit-linear-gradient(
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 2;
   position: relative;
   height: 140px;
   @media screen and (min-width: $vp-tablet) {
@@ -180,7 +180,7 @@ $kode24-action-menu-gradient: -webkit-linear-gradient(
   height: 4.3rem;
   background: linear-gradient(90deg, v(kode24-pink-dark), v(kode24-purple));
   &.sticky {
-    z-index: 1;
+    z-index: 2;
   }
 }
 

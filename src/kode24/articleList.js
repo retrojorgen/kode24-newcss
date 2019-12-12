@@ -7,7 +7,7 @@ $(function() {
   var mobileThresholdPixels = 640;
   getAds(function(ads) {
     adsList = ads;
-    console.log("attempting to ad counter");
+
     adCounterToTopNav(ads.length);
     getArticlesByTag(function(articles, tag) {
       getFrontArticles("premium/", false, function(premiumAds) {
@@ -263,7 +263,7 @@ function drawPremiumUnderByline(premiumAdsList) {
     premiumAdElement.premiumAdElement
   );
   adContainerWrapper.append(adContainer);
-  console.log(adContainerWrapper);
+
   $(".byline.columns").after(adContainerWrapper);
 }
 

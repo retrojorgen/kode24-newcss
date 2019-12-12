@@ -1,5 +1,4 @@
 function adCounterToTopNav(numberOfAds) {
-  console.log("adding counter");
   $("#nav-top ul li a.jobb").append(
     `<span class="nav-badge">${numberOfAds}</span>`
   );
@@ -14,7 +13,7 @@ $(function() {
   var mobileThresholdPixels = 640;
   getAds(function(ads) {
     adsList = ads;
-    console.log("attempting to ad counter");
+
     adCounterToTopNav(ads.length);
     getArticlesByTag(function(articles, tag) {
       getFrontArticles("premium/", false, function(premiumAds) {
@@ -270,7 +269,7 @@ function drawPremiumUnderByline(premiumAdsList) {
     premiumAdElement.premiumAdElement
   );
   adContainerWrapper.append(adContainer);
-  console.log(adContainerWrapper);
+
   $(".byline.columns").after(adContainerWrapper);
 }
 
@@ -1300,6 +1299,25 @@ function getUrl(url, callback) {
   });
 }
 
+// lets images expand
+$(() => {
+  $("figure[data-image-lightbox]").on("click", event => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    let el = $(event.target);
+
+    // somehow it becomes the child when clicked
+    if (!el[0].hasAttribute("data-options")) el = el.parent();
+
+    if (!el.hasClass("active")) {
+      let imageUrl = el.attr("data-options").replace("src:", "");
+      el.css("background-image", `url(${imageUrl})`);
+    }
+    el.toggleClass("active");
+  });
+});
+
 $(function() {
   var adsList = [];
   var premiumAdsList = [];
@@ -2012,7 +2030,6 @@ function getUrl(url, callback) {
 }
 
 $(function() {
-  console.log("running track");
   if (window.location.pathname.indexOf("/jobb/") > -1) {
     const articleArray = /[A-Za-z:]*\/\/[0-9a-z\.:]*\/[a-z]*\/[a-z-]*\/([0-9]*).*/.exec(
       window.location.href
@@ -2024,7 +2041,7 @@ $(function() {
       url: window.location.href,
       referrerUrl: document.referrer
     };
-    console.log("adding track", articleObject);
+
     if (articleId.length > 1) {
       $.post(
         "https://kode24-joblisting.herokuapp.com/api/listing/add/click",
@@ -2032,12 +2049,10 @@ $(function() {
       );
     }
     $("a").on("click", event => {
-      console.log("yo");
       let target = $(event.target);
       let url = target.prop("href");
-      console.log("href", url, url.indexOf("kode24.no"));
+
       if (url.indexOf("kode24.no") < 0) {
-        console.log("posting");
         $.post(
           "https://kode24-joblisting.herokuapp.com/api/listing/add/otherclick",
           {
@@ -2059,31 +2074,29 @@ $(function() {
 
 // tracks clicks on outboundlinks
 /**
-* Funksjon som sporer klikk på en utgående link i Analytics.
-* Denne funksjonen tar en gyldig nettadressestreng som argument og bruker denne strengen
-* som aktivitetsetikett. Hvis transportmetoden angis som «beacon», kan treffet sendes
-* med «navigator.sendBeacon» i nettlesere som støtter dette.
-*/
-var trackOutboundLink = function (url, eventCategory, eventAction) {
-  ga('send', 'event', {
+ * Funksjon som sporer klikk på en utgående link i Analytics.
+ * Denne funksjonen tar en gyldig nettadressestreng som argument og bruker denne strengen
+ * som aktivitetsetikett. Hvis transportmetoden angis som «beacon», kan treffet sendes
+ * med «navigator.sendBeacon» i nettlesere som støtter dette.
+ */
+var trackOutboundLink = function(url, eventCategory, eventAction) {
+  ga("send", "event", {
     eventCategory: eventCategory,
     eventAction: eventAction,
     eventLabel: url,
-    transport: 'beacon'
+    transport: "beacon"
   });
-}
+};
 
-$(function () {
-  console.log("tracking outboud");
-  $("a").click(function (event) {
-    console.log("tracked");
+$(function() {
+  $("a").click(function(event) {
     let targetUrl = event.currentTarget.href;
     if (targetUrl.indexOf("https://www.kode24.no/") < 0) {
       trackOutboundLink(targetUrl, "Ekstern_lenke", "klikk");
-      console.log("Went to", targetUrl);
     }
-  })
-})
+  });
+});
+
 // Sets top navigation and header cloak to sticky when user scrolls
 if (window.location.pathname !== "/") {
   var headerNavigation = document.getElementById("top-navigation");
@@ -2096,12 +2109,10 @@ if (window.location.pathname !== "/") {
       headerNavigation &&
       headerCloak
     ) {
-      console.log("sticky no animation");
       headerNavigation.classList.add("sticky");
       headerCloak.classList.add("sticky", "no-animation");
       alwaysSticky = true;
     } else {
-      console.log("non sticky header");
     }
   });
 
@@ -2122,8 +2133,6 @@ $(() => {
   function randomNumber(max) {
     return Math.floor(Math.random() * max + 0);
   }
-
-  console.log("updated with iframe");
 
   function getUrl(url, callback) {
     $.ajax({
@@ -2156,12 +2165,11 @@ $(() => {
     let url = ad.url;
     let type = ad.type || "image";
     let eventName = ad.eventName;
-    console.log("ad type", ad);
+
     // Må endres hver gang
     let campaignName = "bannerannonse kode24";
     var AdElement = "";
     if (type === "iframe") {
-      console.log("drawing iframe", ad);
       adElement = $(`
         <div class="row top-profile" style="margin-top: 20px; max-width: ${desktopWidth};">
           <div class="kicker">ANNONSE</div> 
@@ -2193,11 +2201,9 @@ $(() => {
 
     if (!document.querySelector("header .full-bleed")) {
       main.before(adElement);
-      console.log("added banner");
     }
 
     adElement.find("a").on("click", () => {
-      console.log("Log click on banner");
       trackOutboundLink(campaignName, eventName, "klikk");
     });
   });

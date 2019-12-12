@@ -14,7 +14,9 @@ body.light {
   #kode24-graphic-header #particles-js {
     opacity: 0.4;
   }
-
+  .facebook-comments p {
+    color: v(kode24-textdarkgray);
+  }
   .article-entity {
     color: v(kode24-textdarkgray);
     .headline {
