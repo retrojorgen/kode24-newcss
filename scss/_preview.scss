@@ -22,20 +22,39 @@
   }
   @media screen and (max-width: #{$vp-tablet - 1}) {
     &.small-7 {
-      flex: 0 0 60%;
+      flex: 0 0 calc(70% / 1.2);
     }
     &.small-5 {
-      flex: 0 0 40%;
+      flex: 0 0 calc(50% / 1.2);
     }
     &.small-6 {
       flex: 0 0 calc(60 / 1.2);
     }
     &.small-12 {
-      flex: 0 0 100%;
+      flex: 0 0 calc(120% / 1.2);
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 
-  @media screen and (min-width: $vp-tablet) {
+  @media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+    &.medium-7 {
+      flex: 0 0 calc(70% / 1.2);
+    }
+    &.medium-5 {
+      flex: 0 0 calc(50% / 1.2);
+    }
+    &.medium-6 {
+      flex: 0 0 calc(60% / 1.2);
+    }
+    &.medium-12 {
+      flex: 0 0 calc(120% / 1.2);
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+
+  @media screen and (min-width: $vp-desktop) {
     &.large-7 {
       flex: 0 0 calc(70% / 1.2);
     }
@@ -47,6 +66,8 @@
     }
     &.large-12 {
       flex: 0 0 calc(120% / 1.2);
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
   .article-preview-text {
@@ -55,7 +76,11 @@
     left: 1.25rem;
     width: calc(100% - 2.5rem);
     padding: 1.25rem 0;
-    @media screen and (min-width: $vp-tablet) {
+    @media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+      width: calc(100% - 4rem);
+      left: 2rem;
+    }
+    @media screen and (min-width: $vp-desktop) {
       width: calc(100% - 7.5rem);
       left: 3.75rem;
       padding: 1.875rem 0;
@@ -69,6 +94,10 @@
       bottom: 0;
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.76) 16%, transparent);
       pointer-events: none;
+      @media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+        left: -2rem;
+        width: calc(100% + 4rem);
+      }
       @media screen and (min-width: $vp-desktop) {
         left: -3.75rem;
         width: calc(100% + 7.5rem);

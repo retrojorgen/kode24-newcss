@@ -246,3 +246,22 @@
     font-weight: bold;
   }
 }
+
+@media screen and (min-width: #{$vp-tablet}) and (max-width: #{$vp-desktop - 1}) {
+  .slick-slide .carousel-ad-company-logo {
+    top: -14px;
+  }
+  .slick-slide .carousel-ad-byline h4 {
+    margin-top: 25px;
+  }
+  .slick-slide .headline {
+    padding-left: 1em;
+    padding-top: 1em;
+  }
+  .slick-slide .image-contain {
+    width: 100%;
+    height: 140px;
+    margin: 0;
+    margin-bottom: 0.85rem;
+  }
+}

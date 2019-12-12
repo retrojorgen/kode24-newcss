@@ -6,6 +6,9 @@
     width: 100%;
     max-width: 100%;
   }
+  @media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+    padding: calc(var(--gutter) * 2);
+  }
   @media screen and (min-width: $vp-desktop) {
     width: 1010px;
   }
@@ -30,7 +33,7 @@
   .row {
     display: flex;
     justify-content: center;
-
+    flex-wrap: wrap;
     @media screen and (max-width: #{$vp-tablet - 1}) {
       flex-wrap: wrap;
       padding-left: 0.625em;

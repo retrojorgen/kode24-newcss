@@ -14,6 +14,26 @@ $sizes: 75;
   }
 }
 
+@media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+  @for $i from 1 through $sizes {
+    $min: 16px;
+    $max: 70px;
+    $step: ($max - $min) / $sizes;
+    .large-size-#{$i} {
+      font-size: $min + ($step * $i) !important;
+      @if $i < 15 {
+        line-height: 1.3;
+      } @else if $i > 15 and $i < 30 {
+        line-height: 1.3;
+      } @else if $i > 30 and $i < 50 {
+        line-height: 1.3;
+      } @else if $i > 50 {
+        line-height: 1.3;
+      }
+    }
+  }
+}
+
 @media screen and (min-width: $vp-desktop) {
   @for $i from 1 through $sizes {
     $min: 16px;
@@ -60,7 +80,42 @@ $sizes: 75;
   }
 }
 
-@media screen and (min-width: $vp-tablet) {
+@media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+  .medium-4,
+  .medium-4 .row .columns,
+  .medium-5,
+  .medium-5 .row .columns {
+    .headline {
+      font-size: 1.4rem;
+    }
+  }
+
+  .medium-6,
+  .medium-6 .row .columns,
+  .medium-7,
+  .medium-7 .row .columns,
+  .medium-8,
+  .medium-8 .row .columns {
+    .headline {
+      font-size: 2rem;
+    }
+  }
+
+  .medium-9,
+  .medium-9 .row .columns,
+  .medium-10,
+  .medium-10 .row .columns,
+  .medium-11,
+  .medium-11 .row .columns,
+  .medium-12,
+  .medium-12 .row .columns {
+    .headline {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media screen and (min-width: $vp-desktop) {
   //For small sizes on large screen
   .small-4,
   .small-4 .row .columns,

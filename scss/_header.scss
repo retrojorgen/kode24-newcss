@@ -166,7 +166,7 @@ $kode24-action-menu-gradient: -webkit-linear-gradient(
 }
 // style for frontpage
 #nav-top:not(.second) {
-  @media screen and (min-width: $vp-tablet) {
+  @media screen and (min-width: $vp-desktop) {
     justify-content: center;
   }
   margin-bottom: 1em;

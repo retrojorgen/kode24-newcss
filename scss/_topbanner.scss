@@ -1,13 +1,13 @@
 .top-profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 0.625em;
   max-width: 980px;
   margin-left: auto;
   margin-right: auto;
   @media screen and (min-width: $vp-tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: calc(#{v(gutter)} * 4);
   }
   .kicker {

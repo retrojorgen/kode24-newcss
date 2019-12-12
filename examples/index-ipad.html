@@ -189,7 +189,7 @@
 	
         </ul>
     </div>
-</nav>    <script src="https://styleguide.kode24.no/assets/kode24-scripts/topBanner.js?v0.1"></script>
+</nav>
     <main class="frontpage wide" role="main" data-pageid="70185540">
         <div id="front-articles-list">
             <div class="row   ">
@@ -284,7 +284,12 @@
     top: -0;
     left: 0;
   }
-  
+  @media (min-width: 700px) and (max-width: 1024px) {
+    #kode24-graphic-header #triangles {
+        transform: translateX(-282px) translateY(-91px) scale(1);
+
+        }
+    }
     @media (min-width: 1025px) {
     
     #kode24-graphic-header #left-triangle,
@@ -1693,8 +1698,8 @@ Som avdelingsleder for Intelligent Engineering Services (IES) i Accenture Techno
 
     <div style="min-height:20px;" class="columns  medium-12 small-12   ">
     
-    <div id="root" style="position: relative; margin-bottom: 10px;"><div class="sc-jTzLTM inKDUB"><div class="sc-jzJRlG cgfNAG" color="rgba(120, 42, 156, 1)"><div class="sc-VigVT dAISpr" speed="20s" offset="0s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT cGFYdi" speed="20s" offset="2s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT dsExvh" speed="20s" offset="4s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT khzYze" speed="20s" offset="6s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT qzhWx" speed="20s" offset="8s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT hspzRx" speed="20s" offset="10s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT degbSC" speed="20s" offset="12s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT bbcbEn" speed="20s" offset="14s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT epSiKV" speed="20s" offset="16s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT kWgsHU" speed="20s" offset="18s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div><div class="sc-VigVT fdNMuq" speed="20s" offset="20s"><span class="top triangle"></span><span class="left triangle"></span><span class="right triangle"></span></div></div><svg width="0" height="0"><defs><clipPath id="newsletter-triangle"><path class="st0" d="M0.1,1.3"></path><polygon points="-0.1,1.5 203.8,400.6 400.8,1.5 "></polygon></clipPath></defs></svg><div id="left-triangle"></div><h2 class="sc-fjdhpX hrfrpf">1500 påmeldt!</h2><form class="sc-gzVnrw ikaWbJ"><h1>Blås opp hjernen!</h1><h2>Med kode24s ukentlige <br> <u>håndskrevne</u> nyhetsbrev!</h2><p>Oppsummering uka som gikk, humor, de feteste jobbene, og en titt bak scenen. <br>Meld deg på du også! 🤓</p><div class="input-row"><label><input type="text" required="" placeholder="navn" value=""></label></div><div class="input-row"><label><input type="email" required="" placeholder="e-post" value=""></label></div><button type="submit" class=""><span>Meld meg på</span></button></form></div></div>
-<script type="text/javascript" src="https://kode24-nyhetsbrev.herokuapp.com/static/js/main.c6565e2b.js"></script>
+    
+
 </div>
 
 
@@ -9739,13 +9744,10 @@ Som avdelingsleder for Intelligent Engineering Services (IES) i Accenture Techno
 </script>
 
         <script src="//am.medialaben.no/scripts/app.min.js"></script>
-        <script src="//styleguide.kode24.no/scripts/app.min.js"></script>
-        <script src="//styleguide.kode24.no/assets/kode24-scripts/jobListing.js?v2.0"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js" integrity="sha256-zUQGihTEkA4nkrgfbbAM1f3pxvnWiznBND+TuJoUv3M=" crossorigin="anonymous"></script>
-        <script src="//styleguide.kode24.no/assets/kode24-scripts/carousel.js?v1.0"></script>
-        <script src="//styleguide.kode24.no/assets/kode24-scripts/adCounterToTopNav.js?v1.0"></script>
-        <script src="//styleguide.kode24.no/assets/kode24-scripts/drawPremium.js?v1.0"></script>
-        <script src="//styleguide.kode24.no/assets/kode24-scripts/outboundAdTracking.js?v1.0"></script>
+        <script src="//am.medialaben.no/scripts/app.min.js"></script>
+        <script src="/scripts/lab.js"></script>
+        <script src="/scripts/kode24.js"></script>
         <script>
             $(function () {
                 initPremium("#front-articles-list", [
