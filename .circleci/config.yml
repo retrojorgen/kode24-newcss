@@ -1,0 +1,89 @@
+version: 2
+
+aliases:
+  - &restore_yarn_cache
+    restore_cache:
+      name: Restore yarn Package Cache
+      keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
+
+  - &save_yarn_cache
+    save_cache:
+      name: Save yarn Package Cache
+      key: yarn-packages-{{ checksum "yarn.lock" }}
+      paths:
+        - ./node_modules
+
+  - &old_yeller_noenv
+    run:
+      name: Send deploy event to old-yeller
+      command: |
+        curl https://old-yeller.prod.medialaben.no/api/event \
+            -H "Authorization: Basic ${OLD_YELLER_AUTH}" \
+            -D- -sSf --connect-timeout 2 -d @- <<REQUEST_BODY > /dev/null || true
+            {
+                "app":         "${CIRCLE_PROJECT_REPONAME}",
+                "tags":        "project:${CIRCLE_PROJECT_REPONAME}, user:${CIRCLE_USERNAME}",
+                "message":     "${CIRCLE_USERNAME} deployed ${CIRCLE_PROJECT_REPONAME}<br><a href=\"${CIRCLE_COMPARE_URL}\">[Github commit]</a><br><a href=\"${CIRCLE_BUILD_URL}\">[Circleci run]</a><br>"
+            }
+        REQUEST_BODY
+
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - <<: *restore_yarn_cache
+      - run:
+          name: install dependencies
+          command: |
+            yarn i
+      - <<: *save_yarn_cache
+      - run:
+          name: build files
+          command: gulp prod
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - dist
+
+  deploy:
+    working_directory: ~/repo
+    docker:
+      - image: google/cloud-sdk
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: deploy files
+          command: |
+            ls -la dist
+            keyfile=$(mktemp)
+            echo -n $BUCKET_ACCOUNT | base64 -d > $keyfile
+            gcloud auth activate-service-account --key-file $keyfile
+            rm $keyfile
+            # Copy all files
+            gsutil -m \
+              -h "Cache-Control:max-age=600, must-revalidate, s-maxage=600" \
+              -h "X-goog-meta-X-Apps-Cache-Channel: styleguide-kode24" \
+              rsync -r \
+              -c dist/ \
+              $BUCKET
+      - <<: *old_yeller_noenv
+
+workflows:
+  version: 2
+  build-stage:
+    jobs:
+      - build:
+          context: "org-global"
+      - deploy:
+          context: "org-global"
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master

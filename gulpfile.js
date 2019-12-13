@@ -2,26 +2,34 @@ const gulp = require("gulp");
 const sass = require("gulp-sass");
 const del = require("del");
 const concat = require("gulp-concat");
-
-gulp.task("styles", () => {
+const uglify = require("gulp-uglify-es").default;
+gulp.task("dev-compile-styles", () => {
   return gulp
     .src("./scss/*.scss")
     .pipe(sass().on("error", sass.logError))
-    .pipe(gulp.dest("./css/"));
+    .pipe(gulp.dest("dist"));
 });
 
-gulp.task("pack-lab-js", function() {
+gulp.task("prod-compile-styles", () => {
   return gulp
-    .src(["src/lab/*.js"])
-    .pipe(concat("lab.js"))
-    .pipe(gulp.dest("scripts/"));
+    .src("./scss/*.scss")
+    .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
+    .pipe(gulp.dest("dist"));
 });
 
-gulp.task("pack-kode24-js", function() {
+gulp.task("dev-pack-scripts-js", function() {
   return gulp
-    .src(["src/kode24/*.js"])
-    .pipe(concat("kode24.js"))
-    .pipe(gulp.dest("scripts/"));
+    .src(["src/**/*.js"])
+    .pipe(concat("scripts.js"))
+    .pipe(gulp.dest("dist"));
+});
+
+gulp.task("prod-pack-scripts-js", function() {
+  return gulp
+    .src(["src/**/*.js"])
+    .pipe(concat("scripts.js"))
+    .pipe(uglify())
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task("clean", () => {
@@ -30,11 +38,16 @@ gulp.task("clean", () => {
 
 gulp.task(
   "default",
-  gulp.series(["clean", "styles", "pack-lab-js", "pack-kode24-js"])
+  gulp.series(["clean", "dev-pack-scripts-js", "dev-compile-styles"])
+);
+
+gulp.task(
+  "prod",
+  gulp.series(["clean", "prod-pack-scripts-js", "prod-compile-styles"])
 );
 
 gulp.task("watch", () => {
   gulp.watch(["scss/*.scss", "src/**"], done => {
-    gulp.series(["clean", "styles", "pack-lab-js", "pack-kode24-js"])(done);
+    gulp.series(["clean", "styles", "dev-pack-scripts-js"])(done);
   });
 });
