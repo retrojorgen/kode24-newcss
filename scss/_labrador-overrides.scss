@@ -1,3 +1,13 @@
+#lab-modalContainer {
+  color: $dark-color;
+  .section-title {
+    color: $dark-color;
+  }
+  label {
+    color: $dark-color;
+  }
+}
+
 .full-bleed {
   .labFn-empty-placeholder {
     min-height: 500px;
