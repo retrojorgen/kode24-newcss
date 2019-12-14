@@ -1,0 +1,30 @@
+.panel {
+  background: linear-gradient(45deg, v(kode24-pink-dark), v(kode24-purple));
+  &.has-section-title {
+    margin-top: calc(#{v(gutter)} * 2);
+  }
+  @media screen and (max-width: #{$vp-tablet -1 }) {
+    &.small-12 {
+      width: 100%;
+    }
+  }
+  @media screen and (min-width: $vp-tablet) {
+    &.large-6 {
+      width: 50%;
+    }
+  }
+  .section-title {
+    font-size: 1.14rem;
+    font-family: v(fontMono);
+    margin: 0;
+    font-weight: 500;
+    padding: calc(#{v(gutter)} * 4) calc(#{v(gutter)} * 2)
+      calc(#{v(gutter)} * 2) calc(#{v(gutter)} * 2);
+    &.center {
+      text-align: center;
+    }
+  }
+  .copy {
+    padding: calc(#{v(gutter)} * 2) calc(#{v(gutter)} * 2);
+  }
+}

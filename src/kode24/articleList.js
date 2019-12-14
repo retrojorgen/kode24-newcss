@@ -1,52 +1,55 @@
 $(function() {
-  var adsList = [];
-  var premiumAdsList = [];
-  var autoJobcarousel = $(".auto-job-carousel");
-  var articleHeight = $("main").height();
-  var screenWidth = window.screen.width;
-  var mobileThresholdPixels = 640;
-  getAds(function(ads) {
-    adsList = ads;
+  if ($(".article-entity").length) {
+    console.log("yo22");
+    var adsList = [];
+    var premiumAdsList = [];
+    var autoJobcarousel = $(".auto-job-carousel");
+    var articleHeight = $("main").height();
+    var screenWidth = window.screen.width;
+    var mobileThresholdPixels = 640;
+    getAds(function(ads) {
+      adsList = ads;
 
-    adCounterToTopNav(ads.length);
-    getArticlesByTag(function(articles, tag) {
-      getFrontArticles("premium/", false, function(premiumAds) {
-        let filteredAdsList = premiumAds.map(ad => ad.instance_of); // just get ids
-        premiumAdsList = ads.filter(
-          ad => filteredAdsList.indexOf(parseInt(ad.id)) > -1
-        );
-        if (
-          screenWidth <= mobileThresholdPixels &&
-          window.location.pathname.indexOf("/jobb/") < 0 &&
-          premiumAdsList.length
-        ) {
-          drawPremiumUnderByline(premiumAdsList);
-        }
-        getFrontArticles("", true, function(frontArticles) {
-          getContentAds(function(contentAds) {
-            drawAside(
-              adsList,
-              premiumAdsList,
-              articles,
-              tag,
-              frontArticles,
-              articleHeight,
-              contentAds
-            );
+      adCounterToTopNav(ads.length);
+      getArticlesByTag(function(articles, tag) {
+        getFrontArticles("premium/", false, function(premiumAds) {
+          let filteredAdsList = premiumAds.map(ad => ad.instance_of); // just get ids
+          premiumAdsList = ads.filter(
+            ad => filteredAdsList.indexOf(parseInt(ad.id)) > -1
+          );
+          if (
+            screenWidth <= mobileThresholdPixels &&
+            window.location.pathname.indexOf("/jobb/") < 0 &&
+            premiumAdsList.length
+          ) {
+            drawPremiumUnderByline(premiumAdsList);
+          }
+          getFrontArticles("", true, function(frontArticles) {
+            getContentAds(function(contentAds) {
+              drawAside(
+                adsList,
+                premiumAdsList,
+                articles,
+                tag,
+                frontArticles,
+                articleHeight,
+                contentAds
+              );
 
-            drawFooterContent(
-              adsList,
-              premiumAdsList,
-              articles,
-              tag,
-              frontArticles,
-              contentAds
-            );
+              drawFooterContent(
+                adsList,
+                premiumAdsList,
+                articles,
+                tag,
+                frontArticles,
+                contentAds
+              );
+            });
           });
         });
       });
     });
-  });
+  }
 });
 
 function shuffleArray(array) {
@@ -477,7 +480,7 @@ function getContentAds(callback) {
 function getArticlesByTag(callback) {
   var articleId = getArticleId();
   getUrl("//api.kode24.no/article/?query=id:" + articleId, function(data) {
-    var tag = data.result[0].section_tag;
+    var tag = data.result[0].section_tag || "";
     getUrl(
       '//api.kode24.no/article/?query=published:[2017-01-01T00:00:00Z+TO+NOW]+AND+visibility_status:P+AND+section:"' +
         tag +

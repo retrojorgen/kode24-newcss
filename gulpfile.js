@@ -48,6 +48,6 @@ gulp.task(
 
 gulp.task("watch", () => {
   gulp.watch(["scss/*.scss", "src/**"], done => {
-    gulp.series(["clean", "styles", "dev-pack-scripts-js"])(done);
+    gulp.series(["clean", "dev-compile-styles", "dev-pack-scripts-js"])(done);
   });
 });

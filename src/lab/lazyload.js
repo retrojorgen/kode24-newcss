@@ -167,7 +167,6 @@
    * @memberof db.libs.imageSrcset
    */
   function init() {
-    console.log("yo");
     if (!ready) {
       images = document.querySelectorAll("img[data-srcset]:not([data-defer])");
       deffered = document.querySelectorAll("img[data-defer]");
