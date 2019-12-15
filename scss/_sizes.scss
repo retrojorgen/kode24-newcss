@@ -1,0 +1,50 @@
+@media screen and (max-width: #{$vp-tablet - 1}) {
+  .small-7 {
+    flex: 0 0 calc(70% / 1.2);
+  }
+  .small-5 {
+    flex: 0 0 calc(50% / 1.2);
+  }
+  .small-6 {
+    flex: 0 0 calc(60 / 1.2);
+  }
+  .small-12 {
+    flex: 0 0 calc(120% / 1.2);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: $vp-tablet) and (max-width: #{$vp-desktop - 1}) {
+  .medium-7 {
+    flex: 0 0 calc(70% / 1.2);
+  }
+  .medium-5 {
+    flex: 0 0 calc(50% / 1.2);
+  }
+  .medium-6 {
+    flex: 0 0 calc(60% / 1.2);
+  }
+  .medium-12 {
+    flex: 0 0 calc(120% / 1.2);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: $vp-desktop) {
+  .large-7 {
+    flex: 0 0 calc(70% / 1.2);
+  }
+  .large-5 {
+    flex: 0 0 calc(50% / 1.2);
+  }
+  .large-6 {
+    flex: 0 0 calc(60% / 1.2);
+  }
+  .large-12 {
+    flex: 0 0 calc(120% / 1.2);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

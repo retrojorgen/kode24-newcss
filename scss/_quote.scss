@@ -1,0 +1,14 @@
+.quotebox {
+  blockquote {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-top: 1.875rem;
+    margin-bottom: 1.875rem;
+    line-height: 1.4;
+    font-family: "IBM Plex Mono", monospace;
+    background: linear-gradient(-45deg, v(kode24-pink), v(kode24-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.2s ease-in-out;
+  }
+}

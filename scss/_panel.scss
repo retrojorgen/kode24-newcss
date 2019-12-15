@@ -3,16 +3,7 @@
   &.has-section-title {
     margin-top: calc(#{v(gutter)} * 2);
   }
-  @media screen and (max-width: #{$vp-tablet -1 }) {
-    &.small-12 {
-      width: 100%;
-    }
-  }
-  @media screen and (min-width: $vp-tablet) {
-    &.large-6 {
-      width: 50%;
-    }
-  }
+
   .section-title {
     font-size: 1.14rem;
     font-family: v(fontMono);

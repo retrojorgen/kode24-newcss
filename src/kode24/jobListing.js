@@ -234,6 +234,7 @@ function getContentAds(callback) {
 
 function getArticlesByTag(callback) {
   var articleId = getArticleId();
+  console.log(articleId);
   getUrl("//api.kode24.no/article/?query=id:" + articleId, function(data) {
     var tag = data.result[0].section_tag;
     getUrl(
@@ -248,7 +249,12 @@ function getArticlesByTag(callback) {
 }
 
 function getArticleId() {
-  var articleUrl = window.location.href;
+  var articleUrl = "";
+  if ($(".article-entity meta:first").attr("content").length) {
+    articleUrl = $(".article-entity meta:first").attr("content");
+  } else {
+    var articleUrl = window.location.href;
+  }
   var articleUrl = articleUrl.split("?")[0];
   var articleList = articleUrl.split("/").filter(val => val !== "");
   var articleId = articleList[articleList.length - 1];

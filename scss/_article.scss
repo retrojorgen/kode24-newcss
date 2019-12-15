@@ -232,6 +232,43 @@
     word-break: break-word;
   }
 
+  @media screen and (max-width: #{$vp-tablet - 1}) {
+    .small-7 {
+      width: calc(70% / 1.2);
+    }
+    .small-5 {
+      width: calc(50% / 1.2);
+    }
+    .small-6 {
+      width: calc(60 / 1.2);
+    }
+    .small-12 {
+      width: calc(120% / 1.2);
+    }
+  }
+
+  @media screen and (min-width: $vp-tablet) {
+    .large-7,
+    .medium-7 {
+      width: calc(70% / 1.2);
+    }
+    .large-5,
+    .medium-5 {
+      width: calc(50% / 1.2);
+    }
+    .large-6,
+    .medium-6 {
+      width: calc(60% / 1.2);
+    }
+    .large-12,
+    .medium-12 {
+      width: calc(120% / 1.2);
+    }
+  }
+
+  img {
+    width: 100%;
+  }
   figure {
     margin: 0;
     position: relative;
