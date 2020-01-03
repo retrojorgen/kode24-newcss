@@ -1,2 +1,388 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>xibXbJE9</title><link rel="icon" href="data:;base64,iVBORw0KGgo="><script>var seenthisInit=function(){var t={};try{t=JSON.parse('{"inscreen":true,"muteButton":true,"maxBitrate":2100}')}catch(t){}window.seenthisController.init("xibXbJE9","12hmaprzj22gamsqgb310w3fucc42hmaprzj53sa4phxw633v5tgqm790uec78q83i1l9xfv9qspdc0hca1hxbg160bg6b00y7jc24b8kedwd3smph3one37z8bxiif1ihmt2d6g2mtfx2umh4wlq1l1f2xyc","CNynGoda",t)},clickTag1="https://poweroffice.no/systemutvikler/ "</script><script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script><style>*{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-position:center;background-repeat:no-repeat;background-size:cover;font-family:sans-serif;overflow:hidden;line-height:1}html,body,#creative,#player{width:100%;height:100%}#creative,#player{position:absolute;left:0;top:0}
-body { background-image: url('https://video.seenthis.se/v2/ads/Xhl4Eq3Yc/poster.jpeg') }</style></head><body><div id="player"></div><div id="creative"></div><script>!function(n){var i={};function a(t){if(i[t])return i[t].exports;var e=i[t]={i:t,l:!1,exports:{}};return n[t].call(e.exports,e,e.exports,a),e.l=!0,e.exports}a.m=n,a.c=i,a.d=function(t,e,n){a.o(t,e)||Object.defineProperty(t,e,{configurable:!1,enumerable:!0,get:n})},a.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return a.d(e,"a",e),e},a.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},a.p="",a(a.s=2)}([function(t,e,n){"use strict";var c=function(t,e){return Math.round(t/e)*e};t.exports={trackEvent:function(t){var e=/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test("12hmaprzj22gamsqgb310w3fucc42hmaprzj53sa4phxw633v5tgqm790uec78q83i1l9xfv9qspdc0hca1hxbg160bg6b00y7jc24b8kedwd3smph3one37z8bxiif1ihmt2d6g2mtfx2umh4wlq1l1f2xyc"),n=e?"https://t.seenthis.se":"https://t.seenthis.se/v3",i=(new Date).getTime(),a=[c(window.innerWidth,10),c(window.innerHeight,10)].join("x"),o=[n,"12hmaprzj22gamsqgb310w3fucc42hmaprzj53sa4phxw633v5tgqm790uec78q83i1l9xfv9qspdc0hca1hxbg160bg6b00y7jc24b8kedwd3smph3one37z8bxiif1ihmt2d6g2mtfx2umh4wlq1l1f2xyc",t,(e?a:"3")+"?_="+i].join("/");try{var r=new XMLHttpRequest;r.open("GET",o),r.send()}catch(t){console.log(t)}}}},function(t,e,n){"use strict";t.exports={init:function(t){Enabler.counter("impression"),Enabler.startTimer("timeSpent"),t()},click:function(t){var i,e=(i={},(window.seenthisScriptURL||window.location.href).replace(/[?&]+([^=&]+)=([^&]*)/gi,function(t,e,n){i[e]=n}),i);if(e.clickTag&&"DEST_URL"!==e.clickTag){var n=decodeURIComponent(e.clickTag);window.open(n,"_blank")}else window.open(window[t],"_blank")}}},function(t,e,n){"use strict";n(3);var i=n(0),a=n(4),o=n(5),r=n(8);window.seenthisController=o,a.init(),r.init(),i.trackEvent(12)},function(t,e,n){"use strict";String.prototype.includes||(String.prototype.includes=function(t,e){return"number"!=typeof e&&(e=0),!(e+t.length>this.length)&&-1!==this.indexOf(t,e)})},function(t,e,n){"use strict";var i=n(1),a=n(0),o=function(t,e){e||document.removeEventListener("click",r),a.trackEvent(2),i.click(t)},r=function(){var t=function(){for(var t=["clickTag","clickTag0","clickTag1","clickTag2"],e=0;e<t.length;e++)if(window[t[e]])return t[e]}();t&&window.openLink(window[t],!0)};t.exports={init:function(){window.openLink=o,document.addEventListener("click",r)}}},function(t,e,n){"use strict";var a=n(1),o=n(6);t.exports={init:function(t,e,n,i){a.init(function(){o.init("#player",t,e,n,i)})},show:function(){console.log("Show")},hide:function(){console.log("Hide")}}},function(t,e,n){"use strict";var p=n(7),v=function(t,e){return["https://video.seenthis.se/v2/creatives",t,e].join("/")};t.exports={init:function(t,e,n,i){var a=4<arguments.length&&void 0!==arguments[4]?arguments[4]:{};window.seenthisPlayer=new SeenthisPlayer(t,e,n,a);var o,r,c,s,u,l,d,f,m=new p(window.seenthisPlayer,window,document);window.frameUpdate=m.frameUpdate,d=i,(f=document.createElement("script")).setAttribute("src",v(d,"script.js")),document.body.appendChild(f),s=i,u=document.head,(l=document.createElement("link")).type="text/css",l.rel="stylesheet",l.href=v(s,"style.css"),u.appendChild(l),o=i,r=function(){var e,n;e=window,n=0,function t(){e.startCreative?window.startCreative():5e3<n||(n+=1,setTimeout(t,2))}()},(c=new XMLHttpRequest).open("GET",v(o,"index.html")),c.send(null),c.onreadystatechange=function(){4===c.readyState&&(document.getElementById("creative").innerHTML=c.responseText,r())}}}},function(t,e,n){"use strict";var s=function(t,e){return-1!==t.className.indexOf(e)},u=function(t,e,n){var i,a,o=n?" "+e:"";t.className=(i=t.className,a=e,i.split(a).join("")).split(" ").filter(function(t){return!!t}).join(" ")+o},o=function(t,e){var n=t.style.transitionDuration;t.style.transitionDuration="0s",u(t,"is-active",!1),u(t,"animate-in",!1),u(t,"animate-out",!1),t.isActive=void 0,setTimeout(function(){t.style.transitionDuration=n},0)};t.exports=function(t,n,i){var a=this;a.player=t,a.lastTime=null,this.frameUpdate=function(t){a.callback=t,a.animatedElements=i.querySelectorAll("[data-start]");for(var e=0;e<a.animatedElements.length;e++)a.animatedElements[e].isActive=!1;!function t(){if(n.requestAnimationFrame?n.requestAnimationFrame(t):setTimeout(t,1e3/30),a.player){var e=a.player.currentTime;"function"==typeof e&&(e=e()),void 0!==a.lastTime&&a.lastTime>e?(a.lastTime=void 0,function(t){for(var e=0;e<t.animatedElements.length;e++){var n=t.animatedElements[e];o(n)}}(a)):e!==a.lastTime&&(0<a.animatedElements.length&&function(t,e){for(var n=0;n<t.animatedElements.length;n++){var i=t.animatedElements[n];a=i,o=e,void 0,r=parseFloat(a.getAttribute("data-start")),c=parseFloat(a.getAttribute("data-duration")),a.isActive=!!(r<=o&&o<r+c),a.isActive&&!s(a,"is-active")?(u(a,"is-active",!0),u(a,"animate-in",!0),u(a,"animate-out",!1)):!a.isActive&&s(a,"is-active")&&(u(a,"is-active",!1),u(a,"animate-in",!1),u(a,"animate-out",!0))}var a,o,r,c}(a,e),a.callback&&a.callback(e),a.lastTime=e)}}()}}},function(t,e,n){"use strict";t.exports={init:function(){}}}])</script><script>var timer=setInterval(function(){window.seenthisInit&&window.SeenthisPlayer&&(clearInterval(timer),window.seenthisInit())},20)</script><script src="https://video.seenthis.se/v2/player/68/player.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>xibXbJE9</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <script>
+      var seenthisInit = function() {
+          var t = {};
+          try {
+            t = JSON.parse(
+              '{"inscreen":true,"muteButton":true,"maxBitrate":2100}'
+            );
+          } catch (t) {}
+          window.seenthisController.init(
+            "xibXbJE9",
+            "12hmaprzj22gamsqgb310w3fucc42hmaprzj53sa4phxw633v5tgqm790uec78q83i1l9xfv9qspdc0hca1hxbg160bg6b00y7jc24b8kedwd3smph3one37z8bxiif1ihmt2d6g2mtfx2umh4wlq1l1f2xyc",
+            "CNynGoda",
+            t
+          );
+        },
+        clickTag1 = "https://poweroffice.no/systemutvikler/ ";
+    </script>
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: sans-serif;
+        overflow: hidden;
+        line-height: 1;
+      }
+      html,
+      body,
+      #creative,
+      #player {
+        width: 100%;
+        height: 100%;
+      }
+      #creative,
+      #player {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      body {
+        background-image: url("https://video.seenthis.se/v2/ads/Xhl4Eq3Yc/poster.jpeg");
+      }
+    </style>
+  </head>
+  <body>
+    <div id="player"></div>
+    <div id="creative"></div>
+    <script>
+      !(function(n) {
+        var i = {};
+        function a(t) {
+          if (i[t]) return i[t].exports;
+          var e = (i[t] = { i: t, l: !1, exports: {} });
+          return n[t].call(e.exports, e, e.exports, a), (e.l = !0), e.exports;
+        }
+        (a.m = n),
+          (a.c = i),
+          (a.d = function(t, e, n) {
+            a.o(t, e) ||
+              Object.defineProperty(t, e, {
+                configurable: !1,
+                enumerable: !0,
+                get: n
+              });
+          }),
+          (a.n = function(t) {
+            var e =
+              t && t.__esModule
+                ? function() {
+                    return t.default;
+                  }
+                : function() {
+                    return t;
+                  };
+            return a.d(e, "a", e), e;
+          }),
+          (a.o = function(t, e) {
+            return Object.prototype.hasOwnProperty.call(t, e);
+          }),
+          (a.p = ""),
+          a((a.s = 2));
+      })([
+        function(t, e, n) {
+          "use strict";
+          var c = function(t, e) {
+            return Math.round(t / e) * e;
+          };
+          t.exports = {
+            trackEvent: function(t) {
+              var e = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
+                  "12hmaprzj22gamsqgb310w3fucc42hmaprzj53sa4phxw633v5tgqm790uec78q83i1l9xfv9qspdc0hca1hxbg160bg6b00y7jc24b8kedwd3smph3one37z8bxiif1ihmt2d6g2mtfx2umh4wlq1l1f2xyc"
+                ),
+                n = e ? "https://t.seenthis.se" : "https://t.seenthis.se/v3",
+                i = new Date().getTime(),
+                a = [c(window.innerWidth, 10), c(window.innerHeight, 10)].join(
+                  "x"
+                ),
+                o = [
+                  n,
+                  "12hmaprzj22gamsqgb310w3fucc42hmaprzj53sa4phxw633v5tgqm790uec78q83i1l9xfv9qspdc0hca1hxbg160bg6b00y7jc24b8kedwd3smph3one37z8bxiif1ihmt2d6g2mtfx2umh4wlq1l1f2xyc",
+                  t,
+                  (e ? a : "3") + "?_=" + i
+                ].join("/");
+              try {
+                var r = new XMLHttpRequest();
+                r.open("GET", o), r.send();
+              } catch (t) {
+                console.log(t);
+              }
+            }
+          };
+        },
+        function(t, e, n) {
+          "use strict";
+          t.exports = {
+            init: function(t) {
+              Enabler.counter("impression"),
+                Enabler.startTimer("timeSpent"),
+                t();
+            },
+            click: function(t) {
+              var i,
+                e =
+                  ((i = {}),
+                  (window.seenthisScriptURL || window.location.href).replace(
+                    /[?&]+([^=&]+)=([^&]*)/gi,
+                    function(t, e, n) {
+                      i[e] = n;
+                    }
+                  ),
+                  i);
+              if (e.clickTag && "DEST_URL" !== e.clickTag) {
+                var n = decodeURIComponent(e.clickTag);
+                window.open(n, "_blank");
+              } else window.open(window[t], "_blank");
+            }
+          };
+        },
+        function(t, e, n) {
+          "use strict";
+          n(3);
+          var i = n(0),
+            a = n(4),
+            o = n(5),
+            r = n(8);
+          (window.seenthisController = o), a.init(), r.init(), i.trackEvent(12);
+        },
+        function(t, e, n) {
+          "use strict";
+          String.prototype.includes ||
+            (String.prototype.includes = function(t, e) {
+              return (
+                "number" != typeof e && (e = 0),
+                !(e + t.length > this.length) && -1 !== this.indexOf(t, e)
+              );
+            });
+        },
+        function(t, e, n) {
+          "use strict";
+          var i = n(1),
+            a = n(0),
+            o = function(t, e) {
+              e || document.removeEventListener("click", r),
+                a.trackEvent(2),
+                i.click(t);
+            },
+            r = function() {
+              var t = (function() {
+                for (
+                  var t = ["clickTag", "clickTag0", "clickTag1", "clickTag2"],
+                    e = 0;
+                  e < t.length;
+                  e++
+                )
+                  if (window[t[e]]) return t[e];
+              })();
+              t && window.openLink(window[t], !0);
+            };
+          t.exports = {
+            init: function() {
+              (window.openLink = o), document.addEventListener("click", r);
+            }
+          };
+        },
+        function(t, e, n) {
+          "use strict";
+          var a = n(1),
+            o = n(6);
+          t.exports = {
+            init: function(t, e, n, i) {
+              a.init(function() {
+                o.init("#player", t, e, n, i);
+              });
+            },
+            show: function() {
+              console.log("Show");
+            },
+            hide: function() {
+              console.log("Hide");
+            }
+          };
+        },
+        function(t, e, n) {
+          "use strict";
+          var p = n(7),
+            v = function(t, e) {
+              return ["https://video.seenthis.se/v2/creatives", t, e].join("/");
+            };
+          t.exports = {
+            init: function(t, e, n, i) {
+              var a =
+                4 < arguments.length && void 0 !== arguments[4]
+                  ? arguments[4]
+                  : {};
+              window.seenthisPlayer = new SeenthisPlayer(t, e, n, a);
+              var o,
+                r,
+                c,
+                s,
+                u,
+                l,
+                d,
+                f,
+                m = new p(window.seenthisPlayer, window, document);
+              (window.frameUpdate = m.frameUpdate),
+                (d = i),
+                (f = document.createElement("script")).setAttribute(
+                  "src",
+                  v(d, "script.js")
+                ),
+                document.body.appendChild(f),
+                (s = i),
+                (u = document.head),
+                ((l = document.createElement("link")).type = "text/css"),
+                (l.rel = "stylesheet"),
+                (l.href = v(s, "style.css")),
+                u.appendChild(l),
+                (o = i),
+                (r = function() {
+                  var e, n;
+                  (e = window),
+                    (n = 0),
+                    (function t() {
+                      e.startCreative
+                        ? window.startCreative()
+                        : 5e3 < n || ((n += 1), setTimeout(t, 2));
+                    })();
+                }),
+                (c = new XMLHttpRequest()).open("GET", v(o, "index.html")),
+                c.send(null),
+                (c.onreadystatechange = function() {
+                  4 === c.readyState &&
+                    ((document.getElementById("creative").innerHTML =
+                      c.responseText),
+                    r());
+                });
+            }
+          };
+        },
+        function(t, e, n) {
+          "use strict";
+          var s = function(t, e) {
+              return -1 !== t.className.indexOf(e);
+            },
+            u = function(t, e, n) {
+              var i,
+                a,
+                o = n ? " " + e : "";
+              t.className =
+                ((i = t.className), (a = e), i.split(a).join(""))
+                  .split(" ")
+                  .filter(function(t) {
+                    return !!t;
+                  })
+                  .join(" ") + o;
+            },
+            o = function(t, e) {
+              var n = t.style.transitionDuration;
+              (t.style.transitionDuration = "0s"),
+                u(t, "is-active", !1),
+                u(t, "animate-in", !1),
+                u(t, "animate-out", !1),
+                (t.isActive = void 0),
+                setTimeout(function() {
+                  t.style.transitionDuration = n;
+                }, 0);
+            };
+          t.exports = function(t, n, i) {
+            var a = this;
+            (a.player = t),
+              (a.lastTime = null),
+              (this.frameUpdate = function(t) {
+                (a.callback = t),
+                  (a.animatedElements = i.querySelectorAll("[data-start]"));
+                for (var e = 0; e < a.animatedElements.length; e++)
+                  a.animatedElements[e].isActive = !1;
+                !(function t() {
+                  if (
+                    (n.requestAnimationFrame
+                      ? n.requestAnimationFrame(t)
+                      : setTimeout(t, 1e3 / 30),
+                    a.player)
+                  ) {
+                    var e = a.player.currentTime;
+                    "function" == typeof e && (e = e()),
+                      void 0 !== a.lastTime && a.lastTime > e
+                        ? ((a.lastTime = void 0),
+                          (function(t) {
+                            for (
+                              var e = 0;
+                              e < t.animatedElements.length;
+                              e++
+                            ) {
+                              var n = t.animatedElements[e];
+                              o(n);
+                            }
+                          })(a))
+                        : e !== a.lastTime &&
+                          (0 < a.animatedElements.length &&
+                            (function(t, e) {
+                              for (
+                                var n = 0;
+                                n < t.animatedElements.length;
+                                n++
+                              ) {
+                                var i = t.animatedElements[n];
+                                (a = i),
+                                  (o = e),
+                                  void 0,
+                                  (r = parseFloat(
+                                    a.getAttribute("data-start")
+                                  )),
+                                  (c = parseFloat(
+                                    a.getAttribute("data-duration")
+                                  )),
+                                  (a.isActive = !!(r <= o && o < r + c)),
+                                  a.isActive && !s(a, "is-active")
+                                    ? (u(a, "is-active", !0),
+                                      u(a, "animate-in", !0),
+                                      u(a, "animate-out", !1))
+                                    : !a.isActive &&
+                                      s(a, "is-active") &&
+                                      (u(a, "is-active", !1),
+                                      u(a, "animate-in", !1),
+                                      u(a, "animate-out", !0));
+                              }
+                              var a, o, r, c;
+                            })(a, e),
+                          a.callback && a.callback(e),
+                          (a.lastTime = e));
+                  }
+                })();
+              });
+          };
+        },
+        function(t, e, n) {
+          "use strict";
+          t.exports = { init: function() {} };
+        }
+      ]);
+    </script>
+    <script>
+      var timer = setInterval(function() {
+        window.seenthisInit &&
+          window.SeenthisPlayer &&
+          (clearInterval(timer), window.seenthisInit());
+      }, 20);
+    </script>
+    <script src="https://video.seenthis.se/v2/player/68/player.js"></script>
+  </body>
+</html>

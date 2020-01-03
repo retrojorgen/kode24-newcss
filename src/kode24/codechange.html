@@ -1,144 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>For å bytte ut kodetegn</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: #0d0d0d;
-            font-family: monospace;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #0d0d0d;
+        font-family: monospace;
+      }
 
-        .code-highlight {
-            width: 600px;
-            height: auto;
-            min-height: 200px;
-            display: block;
-            border: 2px dashed #2b2b2b;
-            background-color: black;
-            outline: none;
-            color: white;
-            padding: 20px;
-            font-size: 16px;
-        }
+      .code-highlight {
+        width: 600px;
+        height: auto;
+        min-height: 200px;
+        display: block;
+        border: 2px dashed #2b2b2b;
+        background-color: black;
+        outline: none;
+        color: white;
+        padding: 20px;
+        font-size: 16px;
+      }
 
-        .code-highlight:placeholder {
-            color: white;
-        }
+      .code-highlight:placeholder {
+        color: white;
+      }
 
-        .input {
-            padding: 20px;
-            background-color: #1e1e1e;
-            margin-bottom: 20px;
-        }
+      .input {
+        padding: 20px;
+        background-color: #1e1e1e;
+        margin-bottom: 20px;
+      }
 
-        .input p,
-        .previous p {
-            color: white;
-            font-size: 20px;
-            text-align: center;
+      .input p,
+      .previous p {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+      }
 
-        }
+      #copy {
+        display: none;
+        width: 100%;
+        border-radius: 4px;
+        background: linear-gradient(45deg, #821599, #492792);
+        padding: 10px;
+        color: white;
+        border: 0;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
 
-        #copy {
-            display: none;
-            width: 100%;
-            border-radius: 4px;
-            background: linear-gradient(45deg, #821599, #492792);
-            padding: 10px;
-            color: white;
-            border: 0;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        #copy.show {
-            display: block;
-        }
+      #copy.show {
+        display: block;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="input">
-        <p>Input</p>
-        <textarea id="code-input" class="code-highlight" placeholder="skriv inn tekst her"></textarea>
+      <p>Input</p>
+      <textarea
+        id="code-input"
+        class="code-highlight"
+        placeholder="skriv inn tekst her"
+      ></textarea>
     </div>
     <div class="input">
-        <p>Output </p>
-        <pre id="code-output" class="code-highlight">
-                </pre>
-        <button id="copy">kopier til clipboard</button>
+      <p>Output</p>
+      <pre id="code-output" class="code-highlight"></pre>
+      <button id="copy">kopier til clipboard</button>
     </div>
     <div id="previous-outputs" class="previous">
-        <p>Siste outputs </p>
+      <p>Siste outputs</p>
     </div>
     <script>
+      function copyToClipboard(element) {
+        var $temp = $("<textarea>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+      }
 
-        function copyToClipboard(element) {
-            var $temp = $("<textarea>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
-            document.execCommand("copy");
-            $temp.remove();
+      function updateOutPutList(codestring) {
+        codestring = codestring.reverse();
+        codestring.forEach(function(code) {
+          $("#previous-outputs").append(
+            $('<pre class="code-highlight"></pre>').text(codestring)
+          );
+        });
+      }
+
+      $(function() {
+        var previouscodes = localStorage.getItem("previouscodes");
+
+        if (previouscodes) previouscodes = JSON.parse(previouscodes);
+        else {
+          var previouscodes = [];
         }
 
-        function updateOutPutList(codestring) {
-            codestring = codestring.reverse();
-            codestring.forEach(function (code) {
-                console.log('fis');
-                $("#previous-outputs").append($('<pre class="code-highlight"></pre>').text(codestring));
-            });
+        if (previouscodes.length) {
+          updateOutPutList(previouscodes);
         }
 
-        $(function () {
-            var previouscodes = localStorage.getItem("previouscodes");
-            console.log(previouscodes);
-            if (previouscodes)
-                previouscodes = JSON.parse(previouscodes);
-            else {
-                var previouscodes = [];
-            }
-
-            if (previouscodes.length) {
-                updateOutPutList(previouscodes);
-            }
-
-            $("#code-input").on("input propertychange", function (event) {
-                var codestring = $(event.target).val();
-                codestring = codestring.replace(/</g, "&lt;");
-                codestring = codestring.replace(/>/g, "&gt;");
-                $("#code-output").text(
-                    "<pre><code>" +
-                    codestring +
-                    "</pre></code>"
-                );
-                if (codestring) {
-                    $("#copy").addClass("show");
-                } else {
-                    $("#copy").removeClass("show");
-                }
-            });
-
-            $("#copy").on("click", function (event) {
-                var codestring = $("#code-output").text();
-                console.log(codestring, "hest1");
-                $("#copy").text($("#copy").text() + " 👍");
-                copyToClipboard($("#code-output"));
-                console.log(codestring, "hest");
-                previouscodes.push(codestring);
-                console.log(codestring, previouscodes, JSON.stringify(previouscodes));
-                localStorage.setItem("previouscodes", JSON.stringify(previouscodes));
-                updateOutPutList(previouscodes);
-            });
+        $("#code-input").on("input propertychange", function(event) {
+          var codestring = $(event.target).val();
+          codestring = codestring.replace(/</g, "&lt;");
+          codestring = codestring.replace(/>/g, "&gt;");
+          $("#code-output").text("<pre><code>" + codestring + "</pre></code>");
+          if (codestring) {
+            $("#copy").addClass("show");
+          } else {
+            $("#copy").removeClass("show");
+          }
         });
 
-    </script>
-</body>
+        $("#copy").on("click", function(event) {
+          var codestring = $("#code-output").text();
 
+          $("#copy").text($("#copy").text() + " 👍");
+          copyToClipboard($("#code-output"));
+
+          previouscodes.push(codestring);
+
+          localStorage.setItem("previouscodes", JSON.stringify(previouscodes));
+          updateOutPutList(previouscodes);
+        });
+      });
+    </script>
+  </body>
 </html>

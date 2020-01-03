@@ -1,10 +1,3 @@
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]]; // eslint-disable-line no-param-reassign
-  }
-}
-
 function initCarousel(selector, isfront) {
   var ads = [];
   var autoJobcarouselContainer = $(`<div class="row"></div>`);
@@ -42,15 +35,11 @@ function adNodesToCarousel(
     adsContainer.append(`
         <article id="${ad.id}">
         <a itemprop="url" href="${ad.published_url}">
-            <figure class="image-contain" style="background-image: url(https://dbstatic.no/${
-              ad.image
-            }.jpg?imageid=${ad.image}&height=300&compression=80)">
+            <figure class="image-contain" style="background-image: url(https://dbstatic.no/${ad.image}.jpg?imageid=${ad.image}&height=300&compression=80)">
             </figure>
             <div class="carousel article-preview-text">
                 <div class="carousel-ad-byline">
-                    <div class="carousel-ad-company-logo" style="background-image: url(https://dbstatic.no${
-                      ad.full_bylines[0].imageUrl
-                    })">
+                    <div class="carousel-ad-company-logo" style="background-image: url(https://dbstatic.no${ad.full_bylines[0].imageUrl})">
                     </div>
                     <h4>${ad.full_bylines[0].firstname}</h4>
                 </div>
@@ -65,9 +54,7 @@ function adNodesToCarousel(
 
   autoJobcarousel.append(adsContainer);
   autoJobcarousel.append(`
-    <a href="/jobb" class="more-jobs"><span>Se alle ledige stillinger (${
-      ads.length
-    })</span></a>
+    <a href="/jobb" class="more-jobs"><span>Se alle ledige stillinger (${ads.length})</span></a>
     `);
   selector.before(autoJobcarouselContainer.append(autoJobcarousel));
 

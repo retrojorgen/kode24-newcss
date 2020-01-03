@@ -7883,7 +7883,6 @@ particlesJS("particles-js", {
             
         
             window.onkeypress = function (event) {
-                console.log(event, event.key);
                 characters.push(event.key);
                 clearTimeout(evaluateCharactersTimeout);
                 evaluateCharactersTimeout = setTimeout(evaluateCharacters, 1000);
