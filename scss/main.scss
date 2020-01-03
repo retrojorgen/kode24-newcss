@@ -20,6 +20,10 @@
 @import "panel";
 @import "quote";
 @import "sizes";
+
+@import "lib/highlight.monokai.min";
+@import "lib/slick-theme";
+@import "lib/slick";
 p {
   //color: v(kode24-commercial-orange);
 }

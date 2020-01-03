@@ -79,9 +79,8 @@
     }
   }
   &.blue {
-    .headline .headline-title-wrapper {
-      background-color: v(kode24-purple);
-      color: v(kode24-white);
+    .article-preview-text:before {
+      background: linear-gradient(0deg, v(kode24-purple) 16%, transparent);
     }
   }
   &.black {
