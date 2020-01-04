@@ -5,12 +5,16 @@ body.light {
   a {
     color: v(kode24-textdarkgray);
   }
+  #top-navigation.article a {
+    color: v(kode24-white);
+  }
   #top-navigation #page-tagline {
     color: v(kode24-textdarkgray);
   }
-  #top-navigation .logo {
+  #top-navigation:not(.article) .logo {
     filter: invert(100%);
   }
+
   #kode24-graphic-header #particles-js {
     opacity: 0.4;
   }
@@ -43,12 +47,18 @@ body.light {
   .slick-list:after {
     background: linear-gradient(90deg, transparent, v(background-light));
   }
-  .body-copy {
+  .body-copy,
+  .article-entity {
     h2,
     h3,
     h4,
     h5,
     h6 {
+      color: v(kode24-textdarkgray);
+    }
+  }
+  .main-footer {
+    a {
       color: v(kode24-white);
     }
   }

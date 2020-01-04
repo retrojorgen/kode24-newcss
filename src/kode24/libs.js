@@ -6,6 +6,15 @@ function shuffleArray(array) {
   }
 }
 
+function newShuffledArray(array) {
+  let newArray = [...array];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]; // eslint-disable-line no-param-reassign
+  }
+  return newArray;
+}
+
 function getAds(callback) {
   getUrl(
     "//api.kode24.no/article/?query=published:[2017-01-01T00:00:00Z+TO+NOW]+AND+NOT+hidefromfp_time:[*+TO+NOW]+AND+visibility_status:P+AND+section:jobb&site_id=207&limit=2000",
@@ -14,6 +23,11 @@ function getAds(callback) {
       callback(ads);
     }
   );
+}
+
+// returns a div with the correct aside class
+function getAside() {
+  return $("<div></div>").addClass("aside-desktop");
 }
 
 function getFrontArticles(front, filterContentMarketing, callback) {
@@ -551,19 +565,15 @@ function drawAdsContainer(adsList, premiumAdsList) {
   var adsContainer = $(
     '<div class="aside-container ads"><h3>Ledige stillinger</h3></div>'
   );
+  // if there are any premium ads
+
   if (premiumAdsList.length) {
-    var premiumAdObject = getPremiumAdsElement(premiumAdsList);
-    var premiumAdElement = premiumAdObject.premiumAdElement;
+    var premiumAdElements = premiumAdsList.map(ad => drawPremiumAdElement(ad));
+    adsContainer.append(premiumAdElements);
   }
 
-  var premiumAdId = 0;
-  if (premiumAdObject && premiumAdObject.premiumAdId)
-    premiumAdId = premiumAdObject.premiumAdId;
+  adsContainer.append(getRegularAdsElements(adsList));
 
-  var regularAdsElements = getRegularAdsElements(adsList, premiumAdId);
-  if (premiumAdsList.length && premiumAdElement)
-    adsContainer.append(premiumAdElement);
-  if (regularAdsElements) adsContainer.append(regularAdsElements);
   adsContainer.append(
     '<div class="adslist-see-more"><a href="//kode24.no/jobb/"><span>Se alle stillinger (' +
       adsList.length +
@@ -619,14 +629,13 @@ function drawFrontArticles(articles) {
   return relatedContainer;
 }
 
-function getRegularAdsElements(adsList, premiumAdId) {
+function getRegularAdsElements(adsList) {
   var regularAds = $('<div class="regular-ad"></div>');
   shuffleArray(adsList);
   adsList = adsList.slice(0, 8);
   adsList.forEach(function(ad) {
-    if (ad.id !== premiumAdId && ad.visibility_status === "P") {
+    if (ad.visibility_status === "P") {
       var cities = getCitysFromTags(ad.tags);
-
       var adElement = $(`
             <a class="ad" href="//kode24.no${ad.published_url}">
             <div class="ad-company-logo"><img alt="company logo" src="https://dbstatic.no${ad.full_bylines[0].imageUrl}"></div>
@@ -647,16 +656,15 @@ function getRegularAdsElements(adsList, premiumAdId) {
   return regularAds;
 }
 
-function getPremiumAdsElement(premiumAdsList, compact) {
-  var premiumAdElement = undefined;
-  shuffleArray(premiumAdsList);
+function getRandomItemFromArray(itemsArray) {
+  return itemsArray[Math.floor(Math.random() * itemsArray.length)];
+}
 
-  if (premiumAdsList.length) {
-    premiumAd = premiumAdsList[0];
-    var cities = getCitysFromTags(premiumAd.tags);
-    premiumAdElement = $(`<a class="premium-ad ad" href="//kode24.no${
-      premiumAd.published_url
-    }">
+function drawPremiumAdElement(premiumAd, compact) {
+  var cities = getCitysFromTags(premiumAd.tags);
+  var premiumAdElement = $(`<a class="premium-ad ad" href="//kode24.no${
+    premiumAd.published_url
+  }">
     ${
       compact
         ? ""
@@ -673,12 +681,11 @@ function getPremiumAdsElement(premiumAdsList, compact) {
             
         </a>`);
 
-    var citiesElement = $('<p class="cities"></p>');
-    cities.forEach(function(city) {
-      citiesElement.append($("<span>" + city + "</span>"));
-    });
-    premiumAdElement.append(citiesElement);
-  }
+  var citiesElement = $('<p class="cities"></p>');
+  cities.forEach(function(city) {
+    citiesElement.append($("<span>" + city + "</span>"));
+  });
+  premiumAdElement.append(citiesElement);
 
-  return { premiumAdElement: premiumAdElement, premiumAdId: premiumAd.id };
+  return premiumAdElement;
 }

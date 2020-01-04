@@ -1,3 +1,9 @@
+// third party libraries
+@import "lib/highlight.monokai.min";
+@import "lib/slick-theme";
+@import "lib/slick";
+
+// kode24-cs
 @import "variables";
 @import "base";
 @import "front";
@@ -21,9 +27,6 @@
 @import "quote";
 @import "sizes";
 
-@import "lib/highlight.monokai.min";
-@import "lib/slick-theme";
-@import "lib/slick";
 p {
   //color: v(kode24-commercial-orange);
 }

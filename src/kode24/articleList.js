@@ -1,63 +1,4 @@
-$(function() {
-  if ($(".article-entity").length) {
-    var adsList = [];
-    var premiumAdsList = [];
-    var autoJobcarousel = $(".auto-job-carousel");
-    var articleHeight = $("main").height();
-    var screenWidth = window.screen.width;
-    var mobileThresholdPixels = 640;
-    getAds(function(ads) {
-      adsList = ads;
-
-      adCounterToTopNav(ads.length);
-      getArticlesByTag(function(articles, tag) {
-        getFrontArticles("premium/", false, function(premiumAds) {
-          let filteredAdsList = premiumAds.map(ad => ad.instance_of); // just get ids
-          premiumAdsList = ads.filter(
-            ad => filteredAdsList.indexOf(parseInt(ad.id)) > -1
-          );
-          if (
-            screenWidth <= mobileThresholdPixels &&
-            window.location.pathname.indexOf("/jobb/") < 0 &&
-            premiumAdsList.length
-          ) {
-            drawPremiumUnderByline(premiumAdsList);
-          }
-          getFrontArticles("", true, function(frontArticles) {
-            getContentAds(function(contentAds) {
-              drawAside(
-                adsList,
-                premiumAdsList,
-                articles,
-                tag,
-                frontArticles,
-                articleHeight,
-                contentAds
-              );
-
-              drawFooterContent(
-                adsList,
-                premiumAdsList,
-                articles,
-                tag,
-                frontArticles,
-                contentAds
-              );
-            });
-          });
-        });
-      });
-    });
-  }
-});
-
-function drawFooterContent(
-  adsList,
-  premiumAdsList,
-  articles,
-  tag,
-  frontArticles
-) {
+function drawFooterContent(adsList, premiumAdsList, articles, tag) {
   var footerContent = $('<div class="footer-content row"></div>');
   var relatedArticlesElements = drawRelatedArticleElements(
     articles,
@@ -226,8 +167,8 @@ function drawRegularAd(ad) {
   return adElement;
 }
 
-function drawPremiumUnderByline(premiumAdsList) {
-  var premiumAdElement = getPremiumAdsElement(premiumAdsList, true);
+function drawPremiumUnderByline(premiumAd) {
+  var premiumAdElement = getPremiumAdsElement(premiumAd, true);
   var adContainerWrapper = $(
     '<div class="byline-listing"><h3>Ledig stilling</h3></div>'
   );
@@ -236,39 +177,5 @@ function drawPremiumUnderByline(premiumAdsList) {
   );
   adContainerWrapper.append(adContainer);
 
-  $(".byline.columns").after(adContainerWrapper);
-}
-
-function drawAside(
-  adsList,
-  premiumAdsList,
-  articles,
-  tag,
-  articlesFront,
-  articleHeight,
-  contentAdsList
-) {
-  var asideContent = $("<div></div>").addClass("aside-desktop");
-
-  var contentAdsContainer = drawContentAd(contentAdsList);
-  var adsContainer = drawAdsContainer(adsList, premiumAdsList);
-  var adsContainerHeight = 1884;
-  asideContent.append(contentAdsContainer, adsContainer);
-
-  var relatedContainer = drawRelatedArticles(articles, tag);
-  var relatedContainerHeight = 856;
-  if (articleHeight > adsContainerHeight + relatedContainerHeight)
-    asideContent.append(relatedContainer);
-
-  var frontArticlesContainer = drawFrontArticles(articlesFront);
-  var frontArticlesContainerHeight = 575;
-  if (
-    articleHeight >
-    adsContainerHeight + relatedContainerHeight + frontArticlesContainerHeight
-  )
-    asideContent.append(frontArticlesContainer);
-
-  $(".body-copy")
-    .parent()
-    .append(asideContent);
+  return adContainerWrapper;
 }
