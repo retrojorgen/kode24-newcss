@@ -28,7 +28,10 @@ $(function() {
         );
 
         // draw ads
-        var adsContainer = drawAdsContainer(nonPremiumAdsList, premiumAdsList);
+        var adsContainer = drawAdsContainer(
+          newShuffledArray(nonPremiumAdsList),
+          newShuffledArray(premiumAdsList)
+        );
         // add them to the dom
 
         // if we are on mobile add premium ad under byline
@@ -42,19 +45,25 @@ $(function() {
         } else {
           asideContainer.append(adsContainer);
         }
+
+        // when sidebar has been drawn
+        adjustOverlap(4000);
+
+        $(window).resize(function() {
+          asideContainer.html("");
+          asideContainer.append(
+            drawAdsContainer(
+              newShuffledArray(nonPremiumAdsList),
+              newShuffledArray(premiumAdsList)
+            )
+          );
+          // when sidebar has been drawn
+          adjustOverlap(4000);
+        });
+
         getArticlesByTag(function(articles, tag) {
           getFrontArticles("", true, function(frontArticles) {
             getContentAds(function(contentAds) {
-              var contentAdsContainer = drawContentAd(contentAds);
-              var relatedContainer = drawRelatedArticles(articles, tag);
-              var frontArticlesContainer = drawFrontArticles(frontArticles);
-              asideContainer.append(
-                contentAdsContainer,
-                adsContainer,
-                relatedContainer,
-                frontArticlesContainer
-              );
-
               $(".body-copy")
                 .parent()
                 .append(asideContainer);
@@ -67,10 +76,6 @@ $(function() {
                 frontArticles,
                 contentAds
               );
-              // when sidebar has been drawn
-              setTimeout(function() {
-                adjustOverlap();
-              }, 4000);
             });
           });
         });
