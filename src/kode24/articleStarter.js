@@ -67,6 +67,10 @@ $(function() {
                 frontArticles,
                 contentAds
               );
+              // when sidebar has been drawn
+              setTimeout(function() {
+                adjustOverlap();
+              }, 4000);
             });
           });
         });
