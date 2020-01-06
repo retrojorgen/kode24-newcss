@@ -2,6 +2,10 @@
 $(function() {
   // only run if article
   if ($(".article-entity").length) {
+    // set timestap on top of article
+    jQuery("time.published").timeago();
+
+    // start the carousel at the bottom of articles
     initCarousel(".row.facebook-comments");
 
     // start the code highlighter
