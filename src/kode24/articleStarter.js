@@ -5,9 +5,6 @@ $(function() {
     // set timestap on top of article
     jQuery("time.published").timeago();
 
-    // lazyload
-    lazyload.init(250);
-
     // start the carousel at the bottom of articles
     initCarousel(".row.facebook-comments");
 
