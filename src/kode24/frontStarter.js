@@ -5,6 +5,9 @@ $(function() {
 
   // only run if not in article
   if (!$(".article-entity").length) {
+    // lazyload
+    lazyload.init(250);
+
     initPremium("#front-articles-list", [
       { type: "premium", row: 3 },
       { type: "premium", row: 5 },
