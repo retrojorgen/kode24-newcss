@@ -82,6 +82,9 @@
       img {
         width: 100%;
       }
+      .columns {
+        width: 100%;
+      }
     }
     .standfirst {
       padding: 0.8rem;
@@ -125,8 +128,8 @@
     }
   }
   .caption {
-    padding: 1rem;
-    border-left: 1px solid v(kode24-pink);
+    padding: 0.8rem;
+    border-left: 2px solid v(kode24-pink);
     font-size: 0.9rem;
     font-weight: 400;
   }
@@ -268,10 +271,13 @@
 
   img {
     width: 100%;
+    display: block;
   }
+
   figure {
     margin: 0;
     position: relative;
+
     figcaption {
       .toggle {
         display: none;
