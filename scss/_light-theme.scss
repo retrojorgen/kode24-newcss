@@ -29,10 +29,22 @@ body.light {
     .standfirst {
       color: v(kode24-textdarkgray);
     }
+    .preview {
+      .standfirst {
+        color: v(kode24-white);
+      }
+    }
   }
   .footer-content {
     a.article {
       color: v(kode24-textdarkgray);
+    }
+    .footer-content-wrap {
+      .premium-ad {
+        h5 {
+          color: v(kode24-white);
+        }
+      }
     }
   }
   // carousel overrides
