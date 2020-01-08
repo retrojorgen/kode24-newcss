@@ -16,7 +16,7 @@
     }
   }
   .columns {
-    padding: calc(#{v(gutter)} * 4);
+    padding: calc(#{v(gutter)} * 4) !important;
     @media screen and (min-width: $vp-desktop) {
       padding: calc(#{v(gutter)} * 6);
     }
