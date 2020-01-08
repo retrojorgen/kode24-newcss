@@ -41,7 +41,7 @@
       position: absolute;
       left: -1.25rem;
       width: calc(100% + 2.5rem);
-      height: 100%;
+      height: 60%;
       bottom: 0;
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.76) 16%, transparent);
       pointer-events: none;
@@ -65,11 +65,13 @@
   &.purple {
     .article-preview-text:before {
       background: linear-gradient(0deg, v(kode24-pink) 16%, transparent);
+      height: 100%;
     }
   }
   &.pink {
     .article-preview-text:before {
       background: linear-gradient(0deg, v(kode24-fuschia) 16%, transparent);
+      height: 100%;
     }
   }
   &.white {
@@ -81,6 +83,7 @@
   &.blue {
     .article-preview-text:before {
       background: linear-gradient(0deg, v(kode24-purple) 16%, transparent);
+      height: 100%;
     }
   }
   &.black {
