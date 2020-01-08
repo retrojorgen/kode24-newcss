@@ -371,6 +371,11 @@
   }
   .preview {
     background: linear-gradient(90deg, v(kode24-pink-dark), v(kode24-purple));
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      transform: scale(1.04);
+      transition: all 0.1s ease-in-out;
+    }
     img {
       display: block;
       width: 100%;

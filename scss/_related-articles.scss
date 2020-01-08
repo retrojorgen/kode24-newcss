@@ -21,7 +21,7 @@
 
         &:nth-child(1) {
           @media screen and (min-width: $vp-tablet) {
-            padding-right: calc(#{v(gutter)} * 2);
+            margin-right: calc(#{v(gutter)} * 2);
           }
         }
       }
@@ -34,20 +34,21 @@
         &:nth-child(1),
         &:nth-child(2) {
           @media screen and (min-width: $vp-tablet) {
-            padding-right: calc(#{v(gutter)} * 2);
+            margin-right: calc(#{v(gutter)} * 2);
           }
         }
       }
     }
     .premium-ad {
+      background: linear-gradient(
+        45deg,
+        v(kode24-pink),
+        v(kode24-commercial-orange)
+      );
+      padding: 0.8rem;
       .ad-text {
         position: relative;
         padding: 0.8rem;
-        background: linear-gradient(
-          45deg,
-          v(kode24-pink),
-          v(kode24-commercial-orange)
-        );
       }
       .ad-company-logo {
         width: 50px;
@@ -90,11 +91,7 @@
         text-align: right;
         span {
           display: inline-block;
-          background: linear-gradient(
-            45deg,
-            v(kode24-pink),
-            v(kode24-commercial-orange)
-          );
+          background: v(kode24-black);
           color: v(kode24-white);
           border-radius: 2px;
           padding: 0.3rem;
@@ -107,11 +104,11 @@
     .article {
       h4 {
         font-family: v(fontMono);
-        font-weight: normal;
-        line-height: 1.4em;
+        font-weight: 500;
+        line-height: 1.1;
 
         margin: 0;
-        font-size: 1.9rem;
+        font-size: 1.6rem;
         padding: 0.8rem;
       }
     }
