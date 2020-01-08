@@ -203,7 +203,7 @@ function drawPremium(banner, element, parent, jobDocuments) {
 function getFrontPremiumBanners(callback) {
   getUrl("//api.kode24.no/front/?query=id:70267311", function(data) {
     getUrl(
-      "//api.kode24.no/article/?query=section:jobb&limit=200&orderBy=published&site_id=207",
+      "//api.kode24.no/article/?query=published:[2017-01-01T00:00:00Z+TO+NOW]+AND+NOT+hidefromfp_time:[*+TO+NOW]+AND+visibility_status:P+AND+section:jobb&site_id=207&limit=2000",
       function(jobDocumentsResponse) {
         let rows = data.result[0].content["lab-dz-1"];
         let jobDocuments = {};
