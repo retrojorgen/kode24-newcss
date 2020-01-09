@@ -174,13 +174,15 @@
     background-size: 100% 3px;
     overflow: visible;
     padding-bottom: 6px;
+    color: v(kode24-textgray);
   }
   .row:not(header) {
     display: flex;
   }
 
   .body-copy {
-    padding: 0.8rem;
+    padding: 0.8rem !important;
+
     width: 100%;
     p {
       line-height: 1.6;
