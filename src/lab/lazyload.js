@@ -78,7 +78,7 @@
   $(() => {
     $(".lazyload").attr(
       "sizes",
-      "(min-width: 700px) 700px,(min-width: 1024px) 1024px, (max-width: 700px) 500px"
+      "(min-width: 700px) 700px,(min-width: 1024px) 1024px, (max-width: 700px) 100px"
     );
     lazyload.init(250);
   });
