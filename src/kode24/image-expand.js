@@ -12,6 +12,9 @@ $(() => {
     if (!el.hasClass("active")) {
       let imageUrl = el.attr("data-options").replace("src:", "");
       el.css("background-image", `url(${imageUrl})`);
+      el.css("background-size", `contain`);
+    } else {
+      el.css("background-size", `0`);
     }
     el.toggleClass("active");
   });
