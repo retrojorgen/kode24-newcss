@@ -81,24 +81,23 @@ body.light {
   .aside-desktop .ad:hover {
     background-color: v(background-light-dark);
   }
-}
-
-.reverse-front {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  span,
-  p,
-  label {
-    color: v(kode24-black);
+  .reverse-front {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    p,
+    label {
+      color: v(kode24-black);
+    }
   }
-}
 
-.cross-site-legend {
-  span {
-    color: v(kode24-textdarkgray);
+  .cross-site-legend {
+    span {
+      color: v(kode24-textdarkgray);
+    }
   }
 }
