@@ -376,6 +376,8 @@
   .preview {
     background: linear-gradient(90deg, v(kode24-pink-dark), v(kode24-purple));
     transition: all 0.1s ease-in-out;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
     &:hover {
       transform: scale(1.02);
       transition: all 0.1s ease-in-out;
