@@ -81,8 +81,14 @@ $kode24-action-menu-gradient: -webkit-linear-gradient(
     }
   }
 }
-// style for article template
 
+@media screen and (max-width: $vp-tablet) {
+  #nav-top {
+    padding-left: 0 0.625em;
+  }
+}
+
+// style for article template
 #nav-top:not(.second),
 #top-navigation.article #header-wrap {
   display: flex;
