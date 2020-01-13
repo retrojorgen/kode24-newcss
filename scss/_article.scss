@@ -378,6 +378,10 @@
     transition: all 0.1s ease-in-out;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    figure {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
     &:hover {
       transform: scale(1.02);
       transition: all 0.1s ease-in-out;
