@@ -5,6 +5,9 @@
   a {
     display: block;
     position: relative;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   time {
     display: none;

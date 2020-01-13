@@ -381,6 +381,13 @@
     transition: all 0.1s ease-in-out;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     figure {
       margin-top: 0;
       margin-bottom: 0;
