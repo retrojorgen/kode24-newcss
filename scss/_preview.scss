@@ -181,16 +181,16 @@
     padding: 0;
     margin: 0;
     position: relative;
-    .lazyload img {
-      width: auto;
-      height: auto;
-    }
     img {
       position: absolute;
       height: 100%;
       max-width: none;
       width: 100%;
       display: block;
+      &.lazyload {
+        width: auto;
+        height: auto;
+      }
     }
     &:after {
       content: "";
