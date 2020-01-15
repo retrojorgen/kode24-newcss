@@ -52,7 +52,8 @@ $kode24-action-menu-gradient: -webkit-linear-gradient(
   }
 }
 
-#nav-top-favorites {
+#nav-top-favorites,
+#nav-top.second {
   display: flex;
   justify-content: center;
   overflow-x: auto;
