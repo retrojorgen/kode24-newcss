@@ -23,13 +23,13 @@
   --kode24-white: #fff;
   --kode24-white-opacity: #{rgba(#fff, 0.2)};
   --kode24-black: #000;
-  --kode24-pink: #c431e3;
-  --kode24-pink-light: #{lighten(#c431e3, 10)};
-  --kode24-pink-dark: #{darken(#c431e3, 20)};
+  --kode24-pink: #c123e1;
+  --kode24-pink-light: #{lighten(#c123e1, 10)};
+  --kode24-pink-dark: #{darken(#c123e1, 20)};
   --kode24-red: #ff4545;
   --kode24-red-light: #{lighten(#ff4545, 10)};
   --kode24-purple: #492792;
-  --kode24-purple-light: #{lighten(#492792, 20)};
+  --kode24-purple-light: #835ed4; // adjusted for WCAG2.1
   --kode24-purple-dark: #{darken(#492792, 10)};
   --kode24-textgray: #d4d4d4;
   --kode24-textdarkgray: #333;
