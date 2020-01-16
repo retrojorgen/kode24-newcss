@@ -576,7 +576,7 @@ function drawAdsContainer(adsList, premiumAdsList) {
 
   adsContainer.append(
     '<div class="adslist-see-more"><a href="//kode24.no/jobb/"><span>Se alle stillinger (' +
-      adsList.length +
+      (adsList.length + premiumAdsList.length) +
       ")</span></a></div>"
   );
   return adsContainer;
@@ -632,7 +632,6 @@ function drawFrontArticles(articles) {
 function getRegularAdsElements(adsList) {
   var regularAds = $('<div class="regular-ad"></div>');
   shuffleArray(adsList);
-  adsList = adsList.slice(0, 8);
   adsList.forEach(function(ad) {
     if (ad.visibility_status === "P") {
       var cities = getCitysFromTags(ad.tags);

@@ -37,6 +37,9 @@
 
   .main-logo {
     margin-bottom: calc(#{v(gutter)} * 2);
+    img {
+      max-width: 140px;
+    }
     .hide {
       display: none;
     }
