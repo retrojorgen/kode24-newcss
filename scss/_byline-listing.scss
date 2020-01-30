@@ -9,6 +9,9 @@
     padding-left: 115px;
     position: relative;
   }
+  .premium-ad {
+    padding: 0.8rem;
+  }
   .cities {
     span {
       display: inline-block;
@@ -36,6 +39,7 @@
   h3 {
     padding: 5px;
     margin: 0;
+    margin-bottom: 20px;
     position: relative;
     background: linear-gradient(
       45deg,
@@ -45,7 +49,8 @@
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 500;
-    color: v(kode24-white)
+    color: v(kode24-white);
+    text-align: center;
   }
   h4 {
     opacity: 0.5;

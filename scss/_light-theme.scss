@@ -101,4 +101,12 @@ body.light {
       color: v(kode24-textdarkgray);
     }
   }
+
+
+  .byline-listing {
+    h3 {
+      color: v(kode24-white);
+    }
+    border-bottom: 1px solid v(kode24-textgray);
+  }
 }
