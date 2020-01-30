@@ -6,14 +6,14 @@
   margin-bottom: 0;
   .ad-text,
   .cities {
-    padding-left: 70px;
+    padding-left: 115px;
     position: relative;
   }
   .cities {
     span {
       display: inline-block;
       background: v(kode24-black);
-      color: v(kode24-yellow);
+      color: v(kode24-white);
       border-radius: 2px;
       padding: 0.2rem;
       text-transform: uppercase;
@@ -24,17 +24,17 @@
   .ad-company-logo {
     top: 44px;
     position: absolute;
-    left: 10px;
+    left: 0;
     top: 15px;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     background-size: 100% auto;
     background-repeat: no-repeat;
     border-radius: 50%;
     overflow: hidden;
   }
   h3 {
-    padding: 10px 10px 10px 70px;
+    padding: 5px;
     margin: 0;
     position: relative;
     background: linear-gradient(
@@ -43,20 +43,20 @@
       v(kode24-commercial-orange)
     );
     text-transform: uppercase;
-    font-size: 20px;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 13px;
     font-weight: 500;
+    color: v(kode24-white)
   }
   h4 {
     opacity: 0.5;
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
   }
   h5 {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
     margin-top: 0;
     margin-bottom: 0.4rem;
     font-weight: 500;
@@ -70,6 +70,4 @@
     margin-bottom: 0.2rem;
   }
 }
-@media screen and (max-width: #{$vp-tablet - 1}) {
-  display: none;
-}
+
