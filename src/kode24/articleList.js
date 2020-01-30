@@ -167,8 +167,9 @@ function drawRegularAd(ad) {
   return adElement;
 }
 
-function drawPremiumUnderByline(premiumAd) {
-  var premiumAdElement = getPremiumAdsElement(premiumAd, true);
+function drawPremiumUnderByline(premiumAds) {
+  var randomPremiumAd = getRandomItemFromArray(premiumAds);
+  var premiumAdElement = drawPremiumAdElement(randomPremiumAd);
   var adContainerWrapper = $(
     '<div class="byline-listing"><h3>Ledig stilling</h3></div>'
   );
