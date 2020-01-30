@@ -69,9 +69,10 @@ body.light {
   }
   .panel {
     color: v(kode24-white);
-    .copy {
-      color: v(kode24-textdarkgray);
+    h5, a, li, p {
+      color: v(kode24-white);
     }
+
   }
   .main-footer {
     a {
