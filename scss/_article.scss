@@ -148,10 +148,12 @@
     opacity: 0.5;
   }
   .byline {
+    
     .byline {
       position: relative;
       display: flex;
       align-items: center;
+      padding: 0.8rem;
       &.columns {
         padding: 0.8rem !important;
         @media screen and (min-width: $vp-desktop) {
