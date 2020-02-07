@@ -1,5 +1,7 @@
 .panel {
   background: linear-gradient(45deg, v(kode24-pink-dark), v(kode24-purple));
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   &.has-section-title {
     margin-top: calc(#{v(gutter)} * 2);
   }
