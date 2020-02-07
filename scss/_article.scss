@@ -395,6 +395,14 @@
       margin-bottom: calc(#{v(gutter)} * 2);
     }
   }
+
+  .flex-video {
+    iframe {
+      width: 100%;
+      min-height: 362px;
+    }
+  }
+
   .preview {
     background: linear-gradient(90deg, v(kode24-pink-dark), v(kode24-purple));
     transition: all 0.1s ease-in-out;
