@@ -23,6 +23,9 @@ body.light {
   }
   .article-entity {
     color: v(kode24-textdarkgray);
+    header .full-bleed .headline {
+      color: v(kode24-white);
+    }
     .headline {
       color: v(kode24-black);
     }
@@ -96,9 +99,7 @@ body.light {
     }
   }
 
-  header .full-bleed {
-    color: v(kode24-white);
-  }
+
 
   .cross-site-legend {
     span {
