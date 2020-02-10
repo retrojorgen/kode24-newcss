@@ -86,9 +86,14 @@ body.light {
       color: v(kode24-white);
     }
   }
-  .aside-desktop .ad:hover {
-    background-color: v(background-light-dark);
+  .aside-desktop .ad {
+    border-bottom: 1px solid v(background-light-dark);
+    &:hover {
+      background-color: v(background-light-dark);
+    }
   }
+
+  
   .reverse-front {
     h1,
     h2,
