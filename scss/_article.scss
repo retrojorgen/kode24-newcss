@@ -400,8 +400,11 @@
       float: none;
       @media screen and (min-width: $vp-tablet) {
         margin-left: 50%;
-        transform: translateX(calc(-50% + 175px));
+        transform: translateX(calc(-50% + 322px));
         width: 100vw;
+      }
+      @media screen and (min-width: $vp-desktop) {
+        transform: translateX(calc(-50% + 175px));
       }
     }
   }
