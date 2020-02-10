@@ -400,7 +400,8 @@
       float: none;
       @media screen and (min-width: $vp-tablet) {
         margin-left: 50%;
-        transform: translateX(calc(-50% + 180px));
+        transform: translateX(calc(-50% + 175px));
+        width: 100vw;
       }
     }
   }
