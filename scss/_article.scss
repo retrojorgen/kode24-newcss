@@ -395,7 +395,7 @@
     &.full-bleed {
       width: 100vw !important;
       margin-left: 50%;
-      transform: translateX(calc(-50% + 175px));
+      transform: translateX(calc(-50% + 180px));
       left: 0 !important;
       float: none;
     }
@@ -449,7 +449,7 @@
     .headline {
       padding: calc(#{v(gutter)} * 2);
       margin-bottom: 0;
-
+      line-height: 1.3;
       .headline-title-wrapper {
         box-decoration-break: unset;
         padding: 0;
