@@ -23,8 +23,12 @@ body.light {
   }
   .article-entity {
     color: v(kode24-textdarkgray);
-    header .full-bleed .headline {
-      color: v(kode24-white);
+    header .full-bleed {
+      .headline,
+      .standfirst,
+      .meta {
+        color: v(kode24-white);
+      }
     }
     .headline {
       color: v(kode24-black);
