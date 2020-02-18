@@ -1,22 +1,21 @@
-
 /** 
 Get offset of bottom of last element in body container.
 Loop through elements in ads aside listing except the button,
 and hide all elements that have higher bottom offset then the last element in the body container.
 **/
 
-function adjustAdsToFitBodyHeight () {
-    console.log("adjusting ads");
-    var lastItem = $(".body-copy").children(":last-child");
+function adjustAdsToFitBodyHeight() {
+  console.log("adjusting ads");
+  var lastItem = $(".body-copy").children(":last-child");
 
-    lastItemOffset = lastItem.offset().top;
+  lastItemOffset = lastItem.offset().top;
 
-    var lastItemHeight = lastItem.outerHeight(true);
+  var lastItemHeight = lastItem.outerHeight(true);
 
-    var textBodyyOffset = lastItem.parent().offset().top;
+  var textBodyyOffset = lastItem.parent().offset().top;
 
-    var offsetHeight = lastItemOffset + lastItemHeight;
-
+  var offsetHeight = lastItemOffset + lastItemHeight;
+  /**
     $(".aside-container").children(":not(.adslist-see-more)").each(function () {
         var element = $(this);
 
@@ -24,4 +23,5 @@ function adjustAdsToFitBodyHeight () {
             element.hide();
         }
     })
+     */
 }
