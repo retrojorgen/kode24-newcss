@@ -14,7 +14,7 @@ function hasOverlap(x, y, x2, y2) {
   return false;
 }
 
-function adjustOverlap(timeoutTimer) {
+function adjustOverlap(timeoutTimer, callback) {
   setTimeout(function() {
     var fullWidthImages = $(".body-copy .full-bleed");
     fullWidthImages.each(function(index) {
@@ -56,5 +56,8 @@ function adjustOverlap(timeoutTimer) {
         }
       });
     });
+
+
+    callback();
   }, timeoutTimer);
 }

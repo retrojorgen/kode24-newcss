@@ -51,7 +51,7 @@ $(function() {
         }
 
         // when sidebar has been drawn
-        adjustOverlap(4000);
+        adjustOverlap(4000, adjustAdsToFitBodyHeight);
 
         $(window).resize(function() {
           asideContainer.html("");
@@ -62,7 +62,7 @@ $(function() {
             )
           );
           // when sidebar has been drawn
-          adjustOverlap(4000);
+          adjustOverlap(4000, adjustAdsToFitBodyHeight);
         });
 
         getArticlesByTag(function(articles, tag) {
