@@ -12,16 +12,22 @@ function adjustAdsToFitBodyHeight() {
 
   var lastItemHeight = lastItem.outerHeight(true);
 
-  var textBodyyOffset = lastItem.parent().offset().top;
+  var textBodyOffset = lastItem.parent().offset().top;
 
   var offsetHeight = lastItemOffset + lastItemHeight;
-  /**
-    $(".aside-container").children(":not(.adslist-see-more)").each(function () {
-        var element = $(this);
 
-        if(element.outerHeight(true) + lastItem.offset().top > offsetHeight) {
-            element.hide();
-        }
-    })
-     */
+  console.log("adjusting ads", offsetHeight, lastItemOffset, lastItemHeight);
+
+  $(".aside-container .premium-ad").each(function() {
+    var element = $(this);
+    if (element.outerHeight(true) + element.offset().top > offsetHeight) {
+      element.hide();
+    }
+  });
+  $(".aside-container .regular-ad .ad").each(function() {
+    var element = $(this);
+    if (element.outerHeight(true) + element.offset().top > offsetHeight) {
+      element.hide();
+    }
+  });
 }
