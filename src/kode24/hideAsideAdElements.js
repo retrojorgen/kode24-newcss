@@ -5,7 +5,7 @@ and hide all elements that have higher bottom offset then the last element in th
 **/
 
 function adjustAdsToFitBodyHeight() {
-  console.log("adjusting ads");
+  console.log("adjusting ads updated");
   var lastItem = $(".body-copy").children(":last-child");
 
   lastItemOffset = lastItem.offset().top;
