@@ -7,6 +7,8 @@ $(function() {
   if (!$(".article-entity").length) {
     // lazyload
 
+    console.log("article config");
+
     initPremium("#front-articles-list", [
       { type: "premium", row: 3 },
       { type: "premium", row: 5 },
