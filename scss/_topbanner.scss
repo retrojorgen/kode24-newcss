@@ -34,6 +34,9 @@
   }
   .mobile {
     display: block;
+    img {
+      width: 100%;
+    }
     @media screen and (min-width: $vp-tablet) {
       display: none;
     }
